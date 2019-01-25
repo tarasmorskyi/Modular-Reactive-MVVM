@@ -1,0 +1,126 @@
+buildscript {
+    repositories {
+        maven { url "https://jitpack.io" }
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+    }
+}
+
+def versionMajor = 1
+def versionMinor = 0
+def versionPatch = 0
+def versionBuild = 0
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+repositories {
+    maven { url "https://clojars.org/repo/" }
+}
+
+android {
+    buildToolsVersion "28.0.3"
+    defaultConfig {
+        applicationId "tmorskyi.modular.demoviewmodel"
+        minSdkVersion 21
+        compileSdkVersion 28
+        targetSdkVersion 28
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
+        versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
+        multiDexEnabled true
+        dataBinding.enabled true
+        vectorDrawables.useSupportLibrary = true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath false
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "basic"
+
+    productFlavors {
+        dev {
+            dimension "basic"
+            buildConfigField 'String', 'SERVER', '"https://api.imgur.com"'
+        }
+        demo {
+            dimension "basic"
+            buildConfigField 'String', 'SERVER', '"https://api.imgur.com"'
+        }
+        prod {
+            dimension "basic"
+            buildConfigField 'String', 'SERVER', '"https://api.imgur.com"'
+        }
+    }
+
+    dexOptions {
+        preDexLibraries true
+        maxProcessCount 8
+        javaMaxHeapSize "4g"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
+    packagingOptions {
+        exclude 'asm-license.txt'
+        exclude 'META-INF/rxjava.properties'
+    }
+}
+
+gradle.projectsEvaluated {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xmaxerrs" << "500" //
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(':splash')
+    implementation project(':login')
+
+
+    api 'com.squareup.okhttp3:okhttp:3.10.0'
+    api "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    api "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+    api "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    api 'com.squareup.moshi:moshi:1.5.0'
+    api 'com.serjltt.moshi:moshi-lazy-adapters:2.2'
+
+
+    implementation 'com.facebook.stetho:stetho:1.5.0'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+
+    implementation 'com.android.support:multidex:1.0.3'
+
+    api "androidx.room:room-runtime:$room"
+    api "androidx.room:room-rxjava2:$room"
+    kapt "androidx.room:room-compiler:$room"
+
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+    compileOnly 'org.glassfish:javax.annotation:10.0-b28'
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle"
+    kapt 'nz.bradcampbell:paperparcel-compiler:2.0.5'
+}
+
+apply plugin: 'kotlin-android-extensions'
