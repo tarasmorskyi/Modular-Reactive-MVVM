@@ -1,1 +1,1 @@
-include ':app', ':splash', ':login', ':uicore'
+include ':app', ':splash', ':login', ':uicore', ':remote', ':local_storage', ':data_model'

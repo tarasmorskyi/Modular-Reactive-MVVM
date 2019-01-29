@@ -1,5 +1,6 @@
 package com.opensport.uicore
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.ObservableSource
@@ -10,7 +11,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.subjects.PublishSubject
 
 
-abstract class BaseViewModel<UIM: BaseUiModel, VME: BaseViewModelEvent, VE: BaseViewEvent> : ViewModel(),
+abstract class BaseViewModel<UIM : BaseUiModel, VME : BaseViewModelEvent, VE : BaseViewEvent> : ViewModel(),
     Observer<UIM> {
     private val disposables = CompositeDisposable()
 
@@ -25,7 +26,8 @@ abstract class BaseViewModel<UIM: BaseUiModel, VME: BaseViewModelEvent, VE: Base
     }
 
     init {
-        events.flatMap { onEvent(it) }.observeOn(AndroidSchedulers.mainThread()).subscribe(this)
+        events.flatMap { onEvent(it) }.observeOn(AndroidSchedulers.mainThread())
+            .subscribe(this)
     }
 
     fun event(event: VME) {
@@ -33,6 +35,7 @@ abstract class BaseViewModel<UIM: BaseUiModel, VME: BaseViewModelEvent, VE: Base
     }
 
     override fun onComplete() {
+        Log.d("aaa", "aaa")
     }
 
     override fun onSubscribe(d: Disposable) {

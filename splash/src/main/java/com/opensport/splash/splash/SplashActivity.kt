@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModelProviders
 import com.opensport.splash.R
 import com.opensport.splash.api.SplashUiEvents
 import com.opensport.uicore.BaseActivity
-import kotlinx.android.synthetic.main.activity_splash.*
 import javax.inject.Inject
 
 class SplashActivity : BaseActivity<SplashViewEvent, SplashViewModel>() {
@@ -18,20 +17,23 @@ class SplashActivity : BaseActivity<SplashViewEvent, SplashViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProviders.of(this, this.viewModeFactory).get(SplashViewModel::class.java)
-
         setContentView(R.layout.activity_splash)
-
-        fab.setOnClickListener { view ->
-            splashUiEvents.startLoginScreen(this)
-        }
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
+        viewModel.event(SplashViewModelEvent.CheckLoginStatus)
     }
 
     override fun onEvent(it: SplashViewEvent) {
-        TODO("manage events from VM here. Never do request back to VM from here.")
+        when(it){
+            is SplashViewEvent.GoToLogin -> {
+                splashUiEvents.startLoginScreen(this)
+            }
+            is SplashViewEvent.GoToMain -> {
+                splashUiEvents.startMainScreen(this)
+            }
+        }
     }
 
     companion object {

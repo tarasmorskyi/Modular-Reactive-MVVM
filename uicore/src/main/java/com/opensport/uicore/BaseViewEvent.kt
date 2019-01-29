@@ -1,4 +1,3 @@
 package com.opensport.uicore
 
-interface BaseViewEvent {
-}
+interface BaseViewEvent

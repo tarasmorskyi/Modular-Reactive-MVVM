@@ -1,5 +1,6 @@
 package com.opensport.myapplication.di
 
+import com.opensport.localstorage.LocalRepositoryModule
 import com.opensport.myapplication.App
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -8,7 +9,7 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(modules = arrayOf(
-//    DomainToolsModule::class, RepositoryModule::class,
+    DomainToolsModule::class, LocalRepositoryModule::class,
     AndroidSupportInjectionModule::class, SessionModule::class))
 interface AppComponent : AndroidInjector<App> {
 

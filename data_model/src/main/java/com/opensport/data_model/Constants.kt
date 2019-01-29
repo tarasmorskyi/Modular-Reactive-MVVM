@@ -1,4 +1,4 @@
-package com.opensport.myapplication.utils
+package com.opensport.data_model
 
 object Constants {
     val EMPTY_STRING = ""
