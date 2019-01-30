@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.opensport.splash">
+          package="com.tarasmorskyi.splash">
 
     <application>
-        <activity android:name=".splash.SplashActivity"
+        <activity android:name="com.tarasmorskyi.splash.splash.SplashActivity"
                 android:label="@string/title_activity_splash"
                 android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
