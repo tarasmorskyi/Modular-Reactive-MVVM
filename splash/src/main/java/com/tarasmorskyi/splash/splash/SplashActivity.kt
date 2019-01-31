@@ -25,8 +25,8 @@ class SplashActivity : BaseActivity<SplashViewEvent, SplashViewModel>() {
         viewModel.event(SplashViewModelEvent.CheckLoginStatus)
     }
 
-    override fun onEvent(it: SplashViewEvent) {
-        when(it){
+    override fun onEvent(useCase: SplashViewEvent) {
+        when(useCase){
             is SplashViewEvent.GoToLogin -> {
                 splashUiEvents.startLoginScreen(this)
             }
@@ -39,8 +39,7 @@ class SplashActivity : BaseActivity<SplashViewEvent, SplashViewModel>() {
     companion object {
 
         fun createIntent(context: Context): Intent {
-            val intent = Intent(context, SplashActivity::class.java)
-            return intent
+            return Intent(context, SplashActivity::class.java)
         }
     }
 }

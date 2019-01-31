@@ -1,8 +1,8 @@
-package com.tarasmorskyi.login.interactors
+package com.tarasmorskyi.api
 
 import com.tarasmorskyi.data_model.UserAuthenticationData
 import io.reactivex.Completable
 
-interface LoginInteractor {
+interface LoginRepoEvents {
     fun login(userAuthenticationData: UserAuthenticationData): Completable
 }

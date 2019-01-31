@@ -2,6 +2,7 @@ package com.tarasmorskyi.login
 
 import com.tarasmorskyi.login.interactors.LoginInteractor
 import com.tarasmorskyi.uicore.BaseViewModel
+import io.reactivex.Observable
 import io.reactivex.ObservableSource
 import javax.inject.Inject
 
@@ -9,11 +10,17 @@ class LoginViewModel @Inject
 constructor(private val interactor: LoginInteractor) :
     BaseViewModel<LoginUiModel, LoginViewModelEvent, LoginViewEvent>() {
 
-    override fun onEvent(it: LoginViewModelEvent): ObservableSource<LoginUiModel> {
-        TODO("call interactor methods from here without managing results")
+    override fun onEvent(useCase: LoginViewModelEvent): ObservableSource<LoginUiModel> {
+        return when (useCase) {
+            is LoginViewModelEvent.Login -> interactor.login(useCase.userAuthenticationData).andThen(goToSplash())
+        }
     }
 
-    override fun onNext(it: LoginUiModel) {
-        TODO("manage events from RX here. Also post data to LiveData and View from here")
+    private fun goToSplash(): Observable<LoginUiModel> = Observable.just(LoginUiModel.GoToSplash)
+
+    override fun onNext(useCase: LoginUiModel) {
+        when (useCase) {
+            is LoginUiModel.GoToSplash -> viewEventObservable.postValue(LoginViewEvent.GoToSplash)
+        }
     }
 }
