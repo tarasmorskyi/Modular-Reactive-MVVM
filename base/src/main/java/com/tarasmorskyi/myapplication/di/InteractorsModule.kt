@@ -2,6 +2,8 @@ package com.tarasmorskyi.myapplication.di
 
 import com.opensport.gallery.interactors.GalleryInteractor
 import com.opensport.gallery.interactors.GalleryInteractorImpl
+import com.opensport.mygallery.interactors.MyGalleryInteractor
+import com.opensport.mygallery.interactors.MyGalleryInteractorImpl
 import com.tarasmorskyi.login.interactors.LoginInteractor
 import com.tarasmorskyi.login.interactors.LoginInteractorImpl
 import com.tarasmorskyi.main.interactors.MainInteractor
@@ -41,4 +43,9 @@ abstract class InteractorsModule {
     internal abstract fun provideGalleryInteractor(
         galleryInteractor: GalleryInteractorImpl
     ): GalleryInteractor
+
+    @Binds
+    internal abstract fun provideMyGalleryInteractor(
+        myGalleryInteractor: MyGalleryInteractorImpl
+    ): MyGalleryInteractor
 }

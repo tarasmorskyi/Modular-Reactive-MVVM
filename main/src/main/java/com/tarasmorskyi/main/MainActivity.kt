@@ -11,11 +11,12 @@ import androidx.lifecycle.ViewModelProviders
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem
 import com.opensport.gallery.GalleryFragment
+import com.opensport.mygallery.MyGalleryFragment
 import com.tarasmorskyi.main.settings.SettingsFragment
 import com.tarasmorskyi.uicore.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivity<MainViewEvent, MainViewModel>(), AHBottomNavigation.OnTabSelectedListener  {
+class MainActivity : BaseActivity<MainViewEvent, MainViewModel>(), AHBottomNavigation.OnTabSelectedListener {
 
     internal var selectedView: Int = -1
     lateinit private var currentFragment: Fragment
@@ -87,7 +88,7 @@ class MainActivity : BaseActivity<MainViewEvent, MainViewModel>(), AHBottomNavig
     private fun getPreviousView(): Int {
         val fm = supportFragmentManager
         val count = fm.backStackEntryCount
-        return if (count > 0) Integer.valueOf(fm.getBackStackEntryAt(count).name) else -1
+        return if (count > 0) Integer.valueOf(fm.getBackStackEntryAt(count).name?.let { it } ?: "") else -1
     }
 
     private fun injectFragment(tag: String) {
@@ -111,7 +112,7 @@ class MainActivity : BaseActivity<MainViewEvent, MainViewModel>(), AHBottomNavig
     private fun addFragment(tag: String): Fragment {
         val fragment: Fragment = when (tag) {
             GALLERY_TAG -> GalleryFragment.newInstance()
-            MY_GALLERY_TAG -> SettingsFragment.newInstance()
+            MY_GALLERY_TAG -> MyGalleryFragment.newInstance()
             SETTINGS_TAG -> SettingsFragment.newInstance()
             else -> GalleryFragment.newInstance()
         }
