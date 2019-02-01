@@ -6,7 +6,6 @@ import com.tarasmorskyi.splash.splash.SplashActivity
 import javax.inject.Inject
 
 class LoginUiEventsImpl @Inject internal constructor() : LoginUiEvents {
-    override fun startSplashScreen(activity: Activity) {
-        activity.startActivity(SplashActivity.createIntent(activity))
-    }
+    override fun startSplashScreen(activity: Activity) = activity.startActivity(SplashActivity.createIntent(activity))
+
 }

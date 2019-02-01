@@ -2,9 +2,13 @@ package com.tarasmorskyi.myapplication.moduleAPIs
 
 import com.tarasmorskyi.api.LoginRepoEvents
 import com.tarasmorskyi.api.LoginUiEvents
+import com.tarasmorskyi.main.settings.api.SettingsRepoEvents
+import com.tarasmorskyi.main.settings.api.SettingsUiEvents
 import com.tarasmorskyi.myapplication.moduleAPIs.repoEvents.LoginRepoEventsImpl
+import com.tarasmorskyi.myapplication.moduleAPIs.repoEvents.SettingsRepoEventsImpl
 import com.tarasmorskyi.myapplication.moduleAPIs.repoEvents.SplashRepoEventsImpl
 import com.tarasmorskyi.myapplication.moduleAPIs.uiAPIs.LoginUiEventsImpl
+import com.tarasmorskyi.myapplication.moduleAPIs.uiAPIs.SettingsUiEventsImpl
 import com.tarasmorskyi.myapplication.moduleAPIs.uiAPIs.SplashUiEventsImpl
 import com.tarasmorskyi.splash.api.SplashRepoEvents
 import com.tarasmorskyi.splash.api.SplashUiEvents
@@ -31,4 +35,14 @@ abstract class ModulesAPIsModule {
     internal abstract fun provideLoginRepoEvents(
         loginRepoEvents: LoginRepoEventsImpl
     ): LoginRepoEvents
+
+    @Binds
+    internal abstract fun provideSettingsRepoEvents(
+        settingsRepoEvents: SettingsRepoEventsImpl
+    ): SettingsRepoEvents
+
+    @Binds
+    internal abstract fun provideSettingsUiEvents(
+        settingsUiEvents: SettingsUiEventsImpl
+    ): SettingsUiEvents
 }

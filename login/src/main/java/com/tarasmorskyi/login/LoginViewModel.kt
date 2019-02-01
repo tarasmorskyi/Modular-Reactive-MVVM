@@ -10,13 +10,11 @@ class LoginViewModel @Inject
 constructor(private val interactor: LoginInteractor) :
     BaseViewModel<LoginUiModel, LoginViewModelEvent, LoginViewEvent>() {
 
-    override fun onEvent(useCase: LoginViewModelEvent): ObservableSource<LoginUiModel> {
+    override fun onEvent(useCase: LoginViewModelEvent): ObservableSource<out LoginUiModel> {
         return when (useCase) {
-            is LoginViewModelEvent.Login -> interactor.login(useCase.userAuthenticationData).andThen(goToSplash())
+            is LoginViewModelEvent.Login -> interactor.login(useCase.userAuthenticationData).andThen(Observable.just(LoginUiModel.GoToSplash))
         }
     }
-
-    private fun goToSplash(): Observable<LoginUiModel> = Observable.just(LoginUiModel.GoToSplash)
 
     override fun onNext(useCase: LoginUiModel) {
         when (useCase) {

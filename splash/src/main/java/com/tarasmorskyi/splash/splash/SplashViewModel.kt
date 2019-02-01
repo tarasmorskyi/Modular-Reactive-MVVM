@@ -9,21 +9,19 @@ class SplashViewModel @Inject
 constructor(private val interactor: SplashInteractor) :
     BaseViewModel<SplashUiModel, SplashViewModelEvent, SplashViewEvent>() {
 
-    override fun onEvent(useCase: SplashViewModelEvent): ObservableSource<SplashUiModel> {
+    override fun onEvent(useCase: SplashViewModelEvent): ObservableSource<out SplashUiModel> {
         return when (useCase) {
-            is SplashViewModelEvent.CheckLoginStatus -> interactor.isLoggedIn().map { loginStatus(it) }.toObservable()
+            is SplashViewModelEvent.CheckLoginStatus -> interactor.isLoggedIn().map { SplashUiModel.LoginResult(it) }.toObservable()
         }
     }
-
-    private fun loginStatus(it: Boolean): SplashUiModel = SplashUiModel.LoginResult(it)
 
     override fun onNext(useCase: SplashUiModel) {
         when (useCase) {
             is SplashUiModel.LoginResult -> {
                 if (useCase.loggedIn) {
-                    viewEventObservable.postValue(SplashViewEvent.GoToMain)
+                    viewEventObservable.value = SplashViewEvent.GoToMain
                 } else {
-                    viewEventObservable.postValue(SplashViewEvent.GoToLogin)
+                    viewEventObservable.value = SplashViewEvent.GoToLogin
                 }
             }
         }

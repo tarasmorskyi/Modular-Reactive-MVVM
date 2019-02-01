@@ -49,5 +49,5 @@ abstract class BaseViewModel<UIM : BaseUiModel, VME : BaseViewModelEvent, VE : B
         errorObservable.value = e
     }
 
-    protected abstract fun onEvent(useCase: VME): ObservableSource<UIM>
+    protected abstract fun onEvent(useCase: VME): ObservableSource<out UIM>
 }

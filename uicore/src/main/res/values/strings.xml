@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Ui Core</string>
+    <string name="exit_app">Exit app?</string>
+    <string name="gallery">Gallery</string>
+    <string name="my_gallery">My gallery</string>
+    <string name="settings">Settings</string>
 </resources>

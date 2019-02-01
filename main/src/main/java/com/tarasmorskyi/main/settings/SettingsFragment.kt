@@ -6,10 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
+import com.tarasmorskyi.data_model.SearchSettings
 import com.tarasmorskyi.main.R
+import com.tarasmorskyi.main.settings.api.SettingsUiEvents
 import com.tarasmorskyi.uicore.BaseFragment
+import com.tarasmorskyi.uicore.customViews.ToggleButtonGroupTableLayout
+import kotlinx.android.synthetic.main.fragment_settings.*
+import javax.inject.Inject
 
-class SettingsFragment: BaseFragment<SettingsViewEvent, SettingsViewModel>() {
+class SettingsFragment : BaseFragment<SettingsViewEvent, SettingsViewModel>(),
+    ToggleButtonGroupTableLayout.RadioButtonChecked {
+
+    @Inject
+    lateinit var settingsUiEvents: SettingsUiEvents
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,13 +28,61 @@ class SettingsFragment: BaseFragment<SettingsViewEvent, SettingsViewModel>() {
         return view
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun setupViewModel() {
         viewModel = ViewModelProviders.of(this, this.viewModeFactory).get(SettingsViewModel::class.java)
     }
 
-    override fun onEvent(it: SettingsViewEvent) {
-        TODO("manage events from VM here. Never do request back to VM from here.")
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel.event(SettingsViewModelEvent.GetSettings)
+    }
+
+    private fun setupSettings(searchSettings: SearchSettings) {
+        when (searchSettings.section) {
+            "hot" -> rgSection.onClick(hot)
+            "top" -> rgSection.onClick(top)
+            "user" -> rgSection.onClick(user)
+        }
+        when (searchSettings.sort) {
+            "viral" -> rgSort.onClick(viral)
+            "top" -> rgSort.onClick(topSort)
+            "time" -> rgSort.onClick(time)
+        }
+        when (searchSettings.window) {
+            "day" -> rgWindow.onClick(day)
+            "week" -> rgWindow.onClick(week)
+            "month" -> rgWindow.onClick(month)
+            "year" -> rgWindow.onClick(year)
+            "all" -> rgWindow.onClick(all)
+        }
+        rgSection.onRadioButtonChecked(this)
+        rgSort.onRadioButtonChecked(this)
+        rgWindow.onRadioButtonChecked(this)
+
+        showViral.isChecked = searchSettings.showViral
+        mature.isChecked = searchSettings.mature
+        showViral.setOnCheckedChangeListener { _, isViral ->
+            run {
+                viewModel.event(SettingsViewModelEvent.SetSettingsShowViral(isViral))
+            }
+        }
+        mature.setOnCheckedChangeListener { _, mature ->
+            run {
+                viewModel.event(SettingsViewModelEvent.SetSettingsMature(mature))
+            }
+        }
+        logout.setOnClickListener { view -> viewModel.event(SettingsViewModelEvent.Logout) }
+    }
+
+    override fun onRadioButtonChecked(view: View) {
+        viewModel.event(SettingsViewModelEvent.SetSettingsFilter(view.id))
+    }
+
+    override fun onEvent(useCase: SettingsViewEvent) {
+        when (useCase) {
+            is SettingsViewEvent.GoToSplash -> activity?.let { settingsUiEvents.goToSplash(it) }
+            is SettingsViewEvent.SetupSearchSettings -> setupSettings(useCase.searchSettings)
+        }
     }
 
     companion object {

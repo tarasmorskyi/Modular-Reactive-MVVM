@@ -84,6 +84,8 @@ android {
         exclude 'asm-license.txt'
         exclude 'META-INF/rxjava.properties'
     }
+
+
 }
 
 gradle.projectsEvaluated {
@@ -115,7 +117,7 @@ dependencies {
     implementation 'com.facebook.stetho:stetho:1.5.0'
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
 
-    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'androidx.multidex:multidex:2.0.0'
 
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"

@@ -22,6 +22,7 @@ abstract class BaseFragment<VE: BaseViewEvent, VM : BaseViewModel<out BaseUiMode
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
+        setupViewModel()
         super.onActivityCreated(savedInstanceState)
         if (::viewModel.isInitialized) {
             viewModel.errorObservable.observe(this, Observer {
@@ -39,6 +40,8 @@ abstract class BaseFragment<VE: BaseViewEvent, VM : BaseViewModel<out BaseUiMode
         }
     }
 
-    abstract fun onEvent(it: VE)
+    abstract fun setupViewModel()
+
+    abstract fun onEvent(useCase: VE)
 
 }

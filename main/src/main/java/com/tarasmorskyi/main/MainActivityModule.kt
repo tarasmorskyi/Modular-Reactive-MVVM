@@ -13,7 +13,4 @@ abstract class MainActivityModule {
     @IntoMap
     @ViewModelKey(MainViewModel::class)
     abstract fun bindMainViewModel(viewModel: MainViewModel): ViewModel
-
-//    @ContributesAndroidInjector(modules = arrayOf(SettingsFragmentModule::class))
-//    internal abstract fun settingsFragment(): SettingsFragment
 }

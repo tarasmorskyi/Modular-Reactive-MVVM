@@ -46,6 +46,7 @@ internal abstract class SessionModule {
             InteractorsModule::class,
             ModulesAPIsModule::class,
             ActivitiesModule::class,
+            FragmentsModule::class,
             AndroidSupportInjectionModule::class,
             ViewModelFactoryModule::class]
     )
