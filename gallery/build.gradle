@@ -30,5 +30,4 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     api project(':uicore')
-    api project(':gallery')
 }

@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem
+import com.opensport.gallery.GalleryFragment
 import com.tarasmorskyi.main.settings.SettingsFragment
 import com.tarasmorskyi.uicore.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -109,10 +110,10 @@ class MainActivity : BaseActivity<MainViewEvent, MainViewModel>(), AHBottomNavig
 
     private fun addFragment(tag: String): Fragment {
         val fragment: Fragment = when (tag) {
-            GALLERY_TAG -> SettingsFragment.newInstance()
+            GALLERY_TAG -> GalleryFragment.newInstance()
             MY_GALLERY_TAG -> SettingsFragment.newInstance()
             SETTINGS_TAG -> SettingsFragment.newInstance()
-            else -> SettingsFragment.newInstance()
+            else -> GalleryFragment.newInstance()
         }
         val ts = supportFragmentManager.beginTransaction()
         ts.add(R.id.container, fragment, tag)

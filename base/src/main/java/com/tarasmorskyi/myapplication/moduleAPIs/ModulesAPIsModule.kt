@@ -1,9 +1,11 @@
 package com.tarasmorskyi.myapplication.moduleAPIs
 
+import com.opensport.gallery.api.GalleryRepoEvents
 import com.tarasmorskyi.api.LoginRepoEvents
 import com.tarasmorskyi.api.LoginUiEvents
 import com.tarasmorskyi.main.settings.api.SettingsRepoEvents
 import com.tarasmorskyi.main.settings.api.SettingsUiEvents
+import com.tarasmorskyi.myapplication.moduleAPIs.repoEvents.GalleryRepoEventsImpl
 import com.tarasmorskyi.myapplication.moduleAPIs.repoEvents.LoginRepoEventsImpl
 import com.tarasmorskyi.myapplication.moduleAPIs.repoEvents.SettingsRepoEventsImpl
 import com.tarasmorskyi.myapplication.moduleAPIs.repoEvents.SplashRepoEventsImpl
@@ -45,4 +47,9 @@ abstract class ModulesAPIsModule {
     internal abstract fun provideSettingsUiEvents(
         settingsUiEvents: SettingsUiEventsImpl
     ): SettingsUiEvents
+
+    @Binds
+    internal abstract fun provideGalleryRepoEvents(
+        galleryRepoEvents: GalleryRepoEventsImpl
+    ): GalleryRepoEvents
 }
