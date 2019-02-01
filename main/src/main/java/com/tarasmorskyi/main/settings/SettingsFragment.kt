@@ -71,7 +71,7 @@ class SettingsFragment : BaseFragment<SettingsViewEvent, SettingsViewModel>(),
                 viewModel.event(SettingsViewModelEvent.SetSettingsMature(mature))
             }
         }
-        logout.setOnClickListener { view -> viewModel.event(SettingsViewModelEvent.Logout) }
+        logout.setOnClickListener { viewModel.event(SettingsViewModelEvent.Logout) }
     }
 
     override fun onRadioButtonChecked(view: View) {

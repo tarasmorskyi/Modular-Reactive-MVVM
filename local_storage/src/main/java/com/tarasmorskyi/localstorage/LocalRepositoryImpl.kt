@@ -35,7 +35,7 @@ class LocalRepositoryImpl @Inject internal constructor(
     }
 
     companion object {
-        private val USER = "user"
+        val USER = "user"
         private val SEARCH_SETTINGS = "search_settings"
     }
 }

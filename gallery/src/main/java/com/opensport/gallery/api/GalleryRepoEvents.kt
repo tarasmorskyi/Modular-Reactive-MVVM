@@ -1,5 +1,8 @@
 package com.opensport.gallery.api
 
-interface GalleryRepoEvents {
+import com.tarasmorskyi.data_model.Post
+import io.reactivex.Maybe
 
+interface GalleryRepoEvents {
+    val posts: Maybe<List<Post>>
 }

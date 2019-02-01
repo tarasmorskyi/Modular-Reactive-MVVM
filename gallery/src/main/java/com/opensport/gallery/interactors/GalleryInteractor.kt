@@ -1,5 +1,8 @@
 package com.opensport.gallery.interactors
 
-interface GalleryInteractor {
+import com.tarasmorskyi.data_model.Post
+import io.reactivex.Maybe
 
+interface GalleryInteractor {
+    val posts: Maybe<List<Post>>
 }

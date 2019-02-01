@@ -3,6 +3,10 @@ package com.tarasmorskyi.myapplication.di
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.serjltt.moshi.adapters.Wrapped
 import com.squareup.moshi.Moshi
+import com.tarasmorskyi.data_model.Constants
+import com.tarasmorskyi.data_model.UserAuthenticationData
+import com.tarasmorskyi.localstorage.LocalRepositoryImpl
+import com.tarasmorskyi.localstorage.Storage
 import com.tarasmorskyi.myapplication.BuildConfig
 import com.tarasmorskyi.myapplication.utils.MoshiDateAdapter
 import com.tarasmorskyi.myapplication.utils.MyAdapterFactory
@@ -16,15 +20,28 @@ import javax.inject.Singleton
 
 @Module(includes = arrayOf(StorageModule::class))
 class DomainToolsModule {
-
-    internal val okHttpClient: OkHttpClient
-        @Provides @Singleton get() {
-            val builder = OkHttpClient.Builder()
-            if (BuildConfig.DEBUG) {
-                builder.addNetworkInterceptor(StethoInterceptor())
-            }
-            return builder.build()
+    @Provides
+    @Singleton
+    internal fun okHttpClient(storage: Storage): OkHttpClient {
+        val builder = OkHttpClient.Builder()
+        if (BuildConfig.DEBUG) {
+            builder.addNetworkInterceptor(StethoInterceptor())
         }
+
+        val token =
+            storage[LocalRepositoryImpl.USER, UserAuthenticationData::class.java, UserAuthenticationData()]?.accessToken
+                ?: Constants.EMPTY_STRING
+        if (!token.isBlank()) {
+            builder.addInterceptor { chain ->
+                val request = chain.request().newBuilder()
+                    .addHeader(
+                        "Authorization", "Bearer " + token
+                    ).build()
+                chain.proceed(request)
+            }
+        }
+        return builder.build()
+    }
 
     @Provides
     @Singleton

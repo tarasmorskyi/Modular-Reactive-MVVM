@@ -1,5 +1,6 @@
 package com.tarasmorskyi.login
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
@@ -26,6 +27,7 @@ class LoginActivity : BaseActivity<LoginViewEvent, LoginViewModel>() {
         setContentView(R.layout.activity_login)
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
 
@@ -35,7 +37,7 @@ class LoginActivity : BaseActivity<LoginViewEvent, LoginViewModel>() {
                 parseLoginDataIfLoggedIn(url)
             }
         }
-        webView.setWebViewClient(webClient)
+        webView.webViewClient = webClient
         webView.settings.userAgentString = "demoapp"
         webView.clearFormData()
         webView.settings.javaScriptEnabled = true
@@ -45,17 +47,19 @@ class LoginActivity : BaseActivity<LoginViewEvent, LoginViewModel>() {
     }
 
     private fun parseLoginDataIfLoggedIn(url: String?) {
-        if (url!!.contains("imgur.com") && url!!.contains("access_token")) {
-            val params = url!!.substring(url!!.indexOf("#") + 1).split("&")
+        if (url!!.contains("imgur.com") && url.contains("access_token")) {
+            val params = url.substring(url.indexOf("#") + 1).split("&")
             val map = HashMap<String, String>()
             for (param in params) {
-                val name = param.split("=".toRegex()).dropLastWhile({ it.isEmpty() }).toTypedArray()[0]
-                val value = param.split("=".toRegex()).dropLastWhile({ it.isEmpty() }).toTypedArray()[1]
+                val name = param.split("=".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[0]
+                val value = param.split("=".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[1]
                 map[name] = value
             }
-            val userAuthenticationData = UserAuthenticationData(map.get("access_token")!!,
-                map.get("expires_in")?.toLong()!!, map.get("token_type")!!, map.get("refresh_token")!!,
-                map.get("account_username")!!, map.get("account_id")?.toLong()!!)
+            val userAuthenticationData = UserAuthenticationData(
+                map["access_token"]!!,
+                map["expires_in"]?.toLong()!!, map["token_type"]!!, map["refresh_token"]!!,
+                map["account_username"]!!, map["account_id"]?.toLong()!!
+            )
             viewModel.event(LoginViewModelEvent.Login(userAuthenticationData))
         }
     }
@@ -69,8 +73,7 @@ class LoginActivity : BaseActivity<LoginViewEvent, LoginViewModel>() {
     companion object {
 
         fun createIntent(context: Context): Intent {
-            val intent = Intent(context, LoginActivity::class.java)
-            return intent
+            return Intent(context, LoginActivity::class.java)
         }
     }
 }

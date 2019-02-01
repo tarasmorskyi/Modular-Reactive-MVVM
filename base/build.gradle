@@ -105,15 +105,6 @@ dependencies {
     implementation project(':remote')
     implementation project(':local_storage')
 
-
-    api 'com.squareup.okhttp3:okhttp:3.10.0'
-    api "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    api "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
-    api "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
-    api 'com.squareup.moshi:moshi:1.5.0'
-    api 'com.serjltt.moshi:moshi-lazy-adapters:2.2'
-
-
     implementation 'com.facebook.stetho:stetho:1.5.0'
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
 

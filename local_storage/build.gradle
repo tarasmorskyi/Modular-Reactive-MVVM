@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 28
@@ -31,24 +31,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api project(':data_model')
-    implementation 'com.squareup.moshi:moshi:1.5.0'
-    implementation 'com.serjltt.moshi:moshi-lazy-adapters:2.2'
     compileOnly "org.glassfish:javax.annotation:$glassfishVersion"
-    api 'androidx.core:core-ktx:1.0.1'
-
-    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
-    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
-    api "com.google.dagger:dagger:$daggerVersion"
-    api "com.google.dagger:dagger-android:$daggerVersion"
-    api "com.google.dagger:dagger-android-support:$daggerVersion"
-
-    api 'io.reactivex.rxjava2:rxjava:2.2.0'
-    api 'io.reactivex.rxjava2:rxandroid:2.1.0'
-    api 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
-    api 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar'
-    api 'com.jakewharton.rxrelay2:rxrelay:2.0.0'
-
-    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api 'com.squareup.moshi:moshi:1.5.0'
+    api 'com.serjltt.moshi:moshi-lazy-adapters:2.2'
 }
-
-apply plugin: 'kotlin-android-extensions'

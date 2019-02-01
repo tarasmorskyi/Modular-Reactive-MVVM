@@ -2,7 +2,7 @@ package com.tarasmorskyi.data_model
 
 import java.util.*
 
-data class Page(
+data class Post(
     val id: String = "",
     val title: String = "",
     val link: String = "",

@@ -58,7 +58,7 @@ class MainActivity : BaseActivity<MainViewEvent, MainViewModel>(), AHBottomNavig
         viewModel.fragmentPositionObservable.observe(this, Observer { injectView(it) })
     }
 
-    override fun onEvent(it: MainViewEvent) {
+    override fun onEvent(useCase: MainViewEvent) {
         TODO("not implemented") //
     }
 
