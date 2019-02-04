@@ -39,6 +39,14 @@ class DomainToolsModule {
                     ).build()
                 chain.proceed(request)
             }
+        } else {
+            builder.addInterceptor { chain ->
+                val request = chain.request().newBuilder()
+                    .addHeader(
+                        "Authorization", "Client-ID 9a9f8a8c12cb9ce"
+                    ).build()
+                chain.proceed(request)
+            }
         }
         return builder.build()
     }

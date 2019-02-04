@@ -10,7 +10,8 @@ import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
 
-abstract class BaseFragment<VE: BaseViewEvent, VM : BaseViewModel<out BaseUiModel, out BaseViewModelEvent, VE>> : Fragment() {
+abstract class BaseFragment<VE : BaseViewEvent, VM : BaseViewModel<out BaseUiModel, out BaseViewModelEvent, VE>> :
+    Fragment() {
 
     @Inject
     lateinit var viewModeFactory: DaggerViewModelFactory
@@ -26,17 +27,21 @@ abstract class BaseFragment<VE: BaseViewEvent, VM : BaseViewModel<out BaseUiMode
         super.onActivityCreated(savedInstanceState)
         if (::viewModel.isInitialized) {
             viewModel.errorObservable.observe(this, Observer {
-                when (it) {
-                    is ResponseError -> {
-                        Toast.makeText(activity, it.message, Toast.LENGTH_SHORT).show()
+                if (it != null) {
+                    when (it) {
+                        is ResponseError -> {
+                            Toast.makeText(activity, it.message, Toast.LENGTH_SHORT).show()
+                        }
                     }
+                    viewModel.errorObservable.postValue(null)
                 }
-                viewModel.errorObservable.postValue(null)
             })
 
             viewModel.viewEventObservable.observe(this, Observer {
-                onEvent(it)
-                viewModel.viewEventObservable.postValue(null)
+                if (it != null) {
+                    onEvent(it)
+                    viewModel.viewEventObservable.postValue(null)
+                }
             })
         }
     }

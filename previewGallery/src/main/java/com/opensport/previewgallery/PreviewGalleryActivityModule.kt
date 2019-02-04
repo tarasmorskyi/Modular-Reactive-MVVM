@@ -1,11 +1,11 @@
-package com.tarasmorskyi.main
+package com.opensport.previewgallery
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
+import com.opensport.previewgallery.api.GalleryUiEventsImpl
 import com.tarasmorskyi.gallery.GalleryFragment
 import com.tarasmorskyi.gallery.GalleryFragmentSubcomponent
 import com.tarasmorskyi.gallery.api.GalleryUiEvents
-import com.tarasmorskyi.main.api.GalleryUiEventsImpl
 import com.tarasmorskyi.uicore.ViewModelKey
 import dagger.Binds
 import dagger.Module
@@ -15,11 +15,13 @@ import dagger.multibindings.IntoMap
 
 
 @Module(subcomponents = [GalleryFragmentSubcomponent::class])
-abstract class MainActivityModule {
+abstract class PreviewGalleryActivityModule {
     @Binds
     @IntoMap
-    @ViewModelKey(MainViewModel::class)
-    abstract fun bindMainViewModel(viewModel: MainViewModel): ViewModel
+    @ViewModelKey(PreviewGalleryViewModel::class)
+    abstract fun bindPreviewGalleryViewModel(viewModel: PreviewGalleryViewModel): ViewModel
+
+
 
     @Binds
     internal abstract fun provideGalleryUiEvents(

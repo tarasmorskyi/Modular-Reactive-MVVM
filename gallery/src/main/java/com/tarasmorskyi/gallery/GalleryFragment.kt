@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.tarasmorskyi.gallery.api.GalleryUiEvents
@@ -18,7 +19,7 @@ class GalleryFragment : BaseFragment<GalleryViewEvent, GalleryViewModel>() {
 
     @Inject
     lateinit var adapter: PostsAdapter
-//    @Inject
+    @Inject
     lateinit var galleryUiEvents: GalleryUiEvents
 
     private lateinit var clicksStream: Disposable
@@ -49,7 +50,7 @@ class GalleryFragment : BaseFragment<GalleryViewEvent, GalleryViewModel>() {
 
     override fun onEvent(useCase: GalleryViewEvent) {
         when (useCase) {
-            is GalleryViewEvent.ShowLikeDialog -> galleryUiEvents.showLikeDialog {
+            is GalleryViewEvent.ShowLikeDialog -> galleryUiEvents.showLikeDialog(activity as AppCompatActivity) {
                 viewModel.event(
                     GalleryViewModelEvent.Like(
                         useCase.post

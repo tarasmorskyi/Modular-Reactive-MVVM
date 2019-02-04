@@ -44,6 +44,7 @@ class LoginActivity : BaseActivity<LoginViewEvent, LoginViewModel>() {
 
         webView.loadUrl("https://api.imgur.com/oauth2/authorize?client_id=9a9f8a8c12cb9ce&response_type=token&state=demoapp")
 
+        withoutLogin.setOnClickListener { loginUiEvents.startPreviewGalleryScreen(this) }
     }
 
     private fun parseLoginDataIfLoggedIn(url: String?) {

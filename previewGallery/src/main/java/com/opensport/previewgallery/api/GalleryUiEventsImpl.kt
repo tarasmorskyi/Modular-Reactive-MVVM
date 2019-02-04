@@ -1,14 +1,13 @@
-package com.tarasmorskyi.main.api
+package com.opensport.previewgallery.api
 
+import android.app.Activity
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.tarasmorskyi.gallery.api.GalleryUiEvents
-import com.tarasmorskyi.main.LikeDialog
 import javax.inject.Inject
 
 class GalleryUiEventsImpl @Inject constructor() : GalleryUiEvents {
     override fun showLikeDialog(activity: AppCompatActivity, likeEvent: (Unit) -> Unit) {
-        val likeFragment = LikeDialog()
-        likeFragment.setCallBack(likeEvent)
-        likeFragment.show(activity.supportFragmentManager, "likeDialog")
+        Toast.makeText(activity, "PreviewActivity", Toast.LENGTH_SHORT).show()
     }
 }

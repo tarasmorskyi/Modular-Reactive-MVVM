@@ -3,6 +3,8 @@ package com.tarasmorskyi.myapplication.moduleAPIs
 import com.tarasmorskyi.api.LoginRepoEvents
 import com.tarasmorskyi.api.LoginUiEvents
 import com.tarasmorskyi.gallery.api.GalleryRepoEvents
+import com.tarasmorskyi.gallery.api.GalleryUiEvents
+import com.tarasmorskyi.main.api.GalleryUiEventsImpl
 import com.tarasmorskyi.main.settings.api.SettingsRepoEvents
 import com.tarasmorskyi.main.settings.api.SettingsUiEvents
 import com.tarasmorskyi.myapplication.moduleAPIs.repoEvents.*

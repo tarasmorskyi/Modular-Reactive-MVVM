@@ -25,16 +25,21 @@ abstract class BaseActivity<VE : BaseViewEvent, VM : BaseViewModel<out BaseUiMod
         super.onPostCreate(savedInstanceState)
         if (::viewModel.isInitialized) {
             viewModel.errorObservable.observe(this, Observer {
-                when (it) {
-                    is ResponseError -> {
-                        Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
+                if (it != null) {
+                    when (it) {
+                        is ResponseError -> {
+                            Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
+                        }
                     }
+                    viewModel.errorObservable.postValue(null)
                 }
-                viewModel.errorObservable.postValue(null)
             })
 
             viewModel.viewEventObservable.observe(this, Observer {
-                onEvent(it)
+                if (it != null) {
+                    onEvent(it)
+                    viewModel.viewEventObservable.postValue(null)
+                }
             })
         }
     }
