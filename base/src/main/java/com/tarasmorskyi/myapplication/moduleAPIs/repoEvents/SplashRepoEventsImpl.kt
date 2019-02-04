@@ -1,6 +1,6 @@
 package com.tarasmorskyi.myapplication.moduleAPIs.repoEvents
 
-import com.tarasmorskyi.data_model.Constants.EMPTY_STRING
+import com.tarasmorskyi.dataModel.Constants.EMPTY_STRING
 import com.tarasmorskyi.localstorage.LocalRepository
 import com.tarasmorskyi.splash.api.SplashRepoEvents
 import io.reactivex.Maybe

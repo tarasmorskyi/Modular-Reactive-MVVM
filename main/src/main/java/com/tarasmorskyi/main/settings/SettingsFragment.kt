@@ -6,18 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
-import com.tarasmorskyi.data_model.SearchSettings
+import com.tarasmorskyi.dataModel.SearchSettings
 import com.tarasmorskyi.main.R
 import com.tarasmorskyi.main.settings.api.SettingsUiEvents
 import com.tarasmorskyi.uicore.BaseFragment
 import com.tarasmorskyi.uicore.customViews.ToggleButtonGroupTableLayout
 import kotlinx.android.synthetic.main.fragment_settings.*
-import javax.inject.Inject
 
 class SettingsFragment : BaseFragment<SettingsViewEvent, SettingsViewModel>(),
     ToggleButtonGroupTableLayout.RadioButtonChecked {
 
-    @Inject
+//    @Inject
     lateinit var settingsUiEvents: SettingsUiEvents
 
     override fun onCreateView(

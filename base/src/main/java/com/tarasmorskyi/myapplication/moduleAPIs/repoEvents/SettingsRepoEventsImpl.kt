@@ -1,7 +1,7 @@
 package com.tarasmorskyi.myapplication.moduleAPIs.repoEvents
 
-import com.tarasmorskyi.data_model.SearchSettings
-import com.tarasmorskyi.data_model.UserAuthenticationData
+import com.tarasmorskyi.dataModel.SearchSettings
+import com.tarasmorskyi.dataModel.UserAuthenticationData
 import com.tarasmorskyi.localstorage.LocalRepository
 import com.tarasmorskyi.main.settings.api.SettingsRepoEvents
 import io.reactivex.Completable

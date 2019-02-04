@@ -36,6 +36,7 @@ abstract class BaseFragment<VE: BaseViewEvent, VM : BaseViewModel<out BaseUiMode
 
             viewModel.viewEventObservable.observe(this, Observer {
                 onEvent(it)
+                viewModel.viewEventObservable.postValue(null)
             })
         }
     }

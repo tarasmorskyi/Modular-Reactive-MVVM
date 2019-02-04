@@ -1,6 +1,6 @@
 package com.tarasmorskyi.login
 
-import com.tarasmorskyi.data_model.UserAuthenticationData
+import com.tarasmorskyi.dataModel.UserAuthenticationData
 import com.tarasmorskyi.uicore.BaseViewModelEvent
 
 sealed class LoginViewModelEvent : BaseViewModelEvent {

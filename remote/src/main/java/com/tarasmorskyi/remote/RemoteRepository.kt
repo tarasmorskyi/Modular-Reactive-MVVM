@@ -1,8 +1,8 @@
 package com.tarasmorskyi.remote
 
 import com.serjltt.moshi.adapters.Wrapped
-import com.tarasmorskyi.data_model.Post
-import com.tarasmorskyi.data_model.SearchSettings
+import com.tarasmorskyi.dataModel.Post
+import com.tarasmorskyi.dataModel.SearchSettings
 import io.reactivex.Completable
 import io.reactivex.Maybe
 import retrofit2.adapter.rxjava2.Result

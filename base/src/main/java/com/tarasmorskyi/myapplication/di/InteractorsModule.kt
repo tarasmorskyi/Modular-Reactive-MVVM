@@ -1,15 +1,15 @@
 package com.tarasmorskyi.myapplication.di
 
-import com.opensport.gallery.interactors.GalleryInteractor
-import com.opensport.gallery.interactors.GalleryInteractorImpl
-import com.opensport.mygallery.interactors.MyGalleryInteractor
-import com.opensport.mygallery.interactors.MyGalleryInteractorImpl
+import com.tarasmorskyi.gallery.interactors.GalleryInteractor
+import com.tarasmorskyi.gallery.interactors.GalleryInteractorImpl
 import com.tarasmorskyi.login.interactors.LoginInteractor
 import com.tarasmorskyi.login.interactors.LoginInteractorImpl
 import com.tarasmorskyi.main.interactors.MainInteractor
 import com.tarasmorskyi.main.interactors.MainInteractorImpl
 import com.tarasmorskyi.main.settings.interactors.SettingsInteractor
 import com.tarasmorskyi.main.settings.interactors.SettingsInteractorImpl
+import com.tarasmorskyi.mygallery.interactors.MyGalleryInteractor
+import com.tarasmorskyi.mygallery.interactors.MyGalleryInteractorImpl
 import com.tarasmorskyi.splash.splash.interactors.SplashInteractor
 import com.tarasmorskyi.splash.splash.interactors.SplashInteractorImpl
 import dagger.Binds

@@ -1,6 +1,6 @@
 package com.tarasmorskyi.main.settings.api
 
-import com.tarasmorskyi.data_model.SearchSettings
+import com.tarasmorskyi.dataModel.SearchSettings
 import io.reactivex.Completable
 import io.reactivex.Maybe
 

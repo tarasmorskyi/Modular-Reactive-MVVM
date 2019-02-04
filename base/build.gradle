@@ -103,18 +103,19 @@ dependencies {
 
 
     implementation project(':remote')
-    implementation project(':local_storage')
+    implementation project(':localStorage')
 
     implementation 'com.facebook.stetho:stetho:1.5.0'
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
 
     implementation 'androidx.multidex:multidex:2.0.0'
 
-    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
-    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
     compileOnly 'org.glassfish:javax.annotation:10.0-b28'
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle"
     kapt 'nz.bradcampbell:paperparcel-compiler:2.0.5'
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 }
 
 apply plugin: 'kotlin-android-extensions'

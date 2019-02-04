@@ -1,7 +1,7 @@
 package com.tarasmorskyi.login.interactors
 
 import com.tarasmorskyi.api.LoginRepoEvents
-import com.tarasmorskyi.data_model.UserAuthenticationData
+import com.tarasmorskyi.dataModel.UserAuthenticationData
 import io.reactivex.Completable
 import javax.inject.Inject
 

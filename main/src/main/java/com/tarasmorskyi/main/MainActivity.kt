@@ -10,11 +10,14 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem
-import com.opensport.gallery.GalleryFragment
-import com.opensport.mygallery.MyGalleryFragment
+import com.tarasmorskyi.gallery.GalleryFragment
 import com.tarasmorskyi.main.settings.SettingsFragment
+import com.tarasmorskyi.mygallery.MyGalleryFragment
 import com.tarasmorskyi.uicore.BaseActivity
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
 class MainActivity : BaseActivity<MainViewEvent, MainViewModel>(), AHBottomNavigation.OnTabSelectedListener {
 

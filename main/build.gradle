@@ -23,7 +23,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
@@ -32,4 +31,7 @@ dependencies {
     api project(':uicore')
     api project(':gallery')
     api project(':mygallery')
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 }

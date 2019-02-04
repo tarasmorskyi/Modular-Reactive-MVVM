@@ -33,7 +33,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    api project(':data_model')
+    api project(':dataModel')
 
     compileOnly 'org.glassfish:javax.annotation:10.0-b28'
     api 'com.squareup.okhttp3:okhttp:3.10.0'
@@ -42,4 +42,6 @@ dependencies {
     api "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
     api 'com.squareup.moshi:moshi:1.5.0'
     api 'com.serjltt.moshi:moshi-lazy-adapters:2.2'
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 }

@@ -6,8 +6,9 @@ import io.reactivex.Observable
 import io.reactivex.ObservableSource
 import javax.inject.Inject
 
-class SettingsViewModel @Inject constructor(private val interactor: SettingsInteractor) :
-    BaseViewModel<SettingsUiModel, SettingsViewModelEvent, SettingsViewEvent>() {
+class SettingsViewModel @Inject constructor(
+    private val interactor: SettingsInteractor
+) : BaseViewModel<SettingsUiModel, SettingsViewModelEvent, SettingsViewEvent>() {
 
     override fun onEvent(useCase: SettingsViewModelEvent): ObservableSource<out SettingsUiModel> {
         return when (useCase) {
@@ -23,6 +24,7 @@ class SettingsViewModel @Inject constructor(private val interactor: SettingsInte
             ).andThen(Observable.empty<SettingsUiModel>())
             is SettingsViewModelEvent.Logout -> interactor.logout().andThen(Observable.just(SettingsUiModel.LoggedOut))
         }
+        return Observable.empty()
     }
 
     override fun onNext(useCase: SettingsUiModel) {

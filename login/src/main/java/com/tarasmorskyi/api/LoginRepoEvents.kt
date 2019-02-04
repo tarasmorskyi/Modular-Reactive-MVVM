@@ -1,6 +1,6 @@
 package com.tarasmorskyi.api
 
-import com.tarasmorskyi.data_model.UserAuthenticationData
+import com.tarasmorskyi.dataModel.UserAuthenticationData
 import io.reactivex.Completable
 
 interface LoginRepoEvents {

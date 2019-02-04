@@ -1,15 +1,15 @@
 package com.tarasmorskyi.myapplication.moduleAPIs
 
-import com.opensport.gallery.api.GalleryRepoEvents
-import com.opensport.mygallery.api.MyGalleryRepoEvents
 import com.tarasmorskyi.api.LoginRepoEvents
 import com.tarasmorskyi.api.LoginUiEvents
+import com.tarasmorskyi.gallery.api.GalleryRepoEvents
 import com.tarasmorskyi.main.settings.api.SettingsRepoEvents
 import com.tarasmorskyi.main.settings.api.SettingsUiEvents
 import com.tarasmorskyi.myapplication.moduleAPIs.repoEvents.*
 import com.tarasmorskyi.myapplication.moduleAPIs.uiAPIs.LoginUiEventsImpl
 import com.tarasmorskyi.myapplication.moduleAPIs.uiAPIs.SettingsUiEventsImpl
 import com.tarasmorskyi.myapplication.moduleAPIs.uiAPIs.SplashUiEventsImpl
+import com.tarasmorskyi.mygallery.api.MyGalleryRepoEvents
 import com.tarasmorskyi.splash.api.SplashRepoEvents
 import com.tarasmorskyi.splash.api.SplashUiEvents
 import dagger.Binds

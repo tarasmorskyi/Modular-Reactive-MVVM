@@ -1,6 +1,6 @@
 package com.tarasmorskyi.main.settings
 
-import com.tarasmorskyi.data_model.SearchSettings
+import com.tarasmorskyi.dataModel.SearchSettings
 import com.tarasmorskyi.uicore.BaseUiModel
 
 sealed class SettingsUiModel : BaseUiModel {

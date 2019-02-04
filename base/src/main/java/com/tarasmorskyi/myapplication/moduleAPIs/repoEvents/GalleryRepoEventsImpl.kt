@@ -1,8 +1,8 @@
 package com.tarasmorskyi.myapplication.moduleAPIs.repoEvents
 
-import com.opensport.gallery.api.GalleryRepoEvents
-import com.tarasmorskyi.data_model.Post
-import com.tarasmorskyi.data_model.SearchSettings
+import com.tarasmorskyi.gallery.api.GalleryRepoEvents
+import com.tarasmorskyi.dataModel.Post
+import com.tarasmorskyi.dataModel.SearchSettings
 import com.tarasmorskyi.localstorage.LocalRepository
 import com.tarasmorskyi.remote.RemoteRepository
 import io.reactivex.Maybe

@@ -1,7 +1,7 @@
 package com.tarasmorskyi.remote
 
-import com.tarasmorskyi.data_model.Post
-import com.tarasmorskyi.data_model.SearchSettings
+import com.tarasmorskyi.dataModel.Post
+import com.tarasmorskyi.dataModel.SearchSettings
 import dagger.Reusable
 import io.reactivex.Completable
 import io.reactivex.Maybe

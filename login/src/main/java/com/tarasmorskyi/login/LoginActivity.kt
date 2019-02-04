@@ -9,7 +9,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.lifecycle.ViewModelProviders
 import com.tarasmorskyi.api.LoginUiEvents
-import com.tarasmorskyi.data_model.UserAuthenticationData
+import com.tarasmorskyi.dataModel.UserAuthenticationData
 import com.tarasmorskyi.uicore.BaseActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import java.util.*

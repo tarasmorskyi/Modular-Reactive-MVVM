@@ -1,11 +1,11 @@
 package com.tarasmorskyi.myapplication.di
 
-import com.opensport.gallery.GalleryFragment
-import com.opensport.gallery.GalleryFragmentModule
-import com.opensport.mygallery.MyGalleryFragment
-import com.opensport.mygallery.MyGalleryFragmentModule
+import com.tarasmorskyi.gallery.GalleryFragment
+import com.tarasmorskyi.gallery.GalleryFragmentModule
 import com.tarasmorskyi.main.settings.SettingsFragment
 import com.tarasmorskyi.main.settings.SettingsFragmentModule
+import com.tarasmorskyi.mygallery.MyGalleryFragment
+import com.tarasmorskyi.mygallery.MyGalleryFragmentModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

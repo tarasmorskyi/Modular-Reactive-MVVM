@@ -1,7 +1,7 @@
 package com.tarasmorskyi.myapplication.moduleAPIs.repoEvents
 
 import com.tarasmorskyi.api.LoginRepoEvents
-import com.tarasmorskyi.data_model.UserAuthenticationData
+import com.tarasmorskyi.dataModel.UserAuthenticationData
 import com.tarasmorskyi.localstorage.LocalRepository
 import io.reactivex.Completable
 import javax.inject.Inject

@@ -1,6 +1,6 @@
 package com.tarasmorskyi.main.settings.interactors
 
-import com.tarasmorskyi.data_model.SearchSettings
+import com.tarasmorskyi.dataModel.SearchSettings
 import com.tarasmorskyi.main.R
 import com.tarasmorskyi.main.settings.api.SettingsRepoEvents
 import io.reactivex.Completable

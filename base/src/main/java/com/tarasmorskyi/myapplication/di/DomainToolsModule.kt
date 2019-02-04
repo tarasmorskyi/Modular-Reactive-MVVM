@@ -3,8 +3,8 @@ package com.tarasmorskyi.myapplication.di
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.serjltt.moshi.adapters.Wrapped
 import com.squareup.moshi.Moshi
-import com.tarasmorskyi.data_model.Constants
-import com.tarasmorskyi.data_model.UserAuthenticationData
+import com.tarasmorskyi.dataModel.Constants
+import com.tarasmorskyi.dataModel.UserAuthenticationData
 import com.tarasmorskyi.localstorage.LocalRepositoryImpl
 import com.tarasmorskyi.localstorage.Storage
 import com.tarasmorskyi.myapplication.BuildConfig
