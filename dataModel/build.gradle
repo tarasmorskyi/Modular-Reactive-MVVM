@@ -47,8 +47,6 @@ dependencies {
 
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     api 'com.jakewharton.timber:timber:4.6.0'
-    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
-    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 }
 
 apply plugin: 'kotlin-android-extensions'

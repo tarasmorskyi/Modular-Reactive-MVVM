@@ -46,6 +46,4 @@ dependencies {
     api "androidx.lifecycle:lifecycle-runtime:$lifecycle"
     api "androidx.lifecycle:lifecycle-extensions:$lifecycle"
     api 'com.aurelhubert:ahbottomnavigation:2.1.0'
-    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
-    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 }

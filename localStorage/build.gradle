@@ -34,6 +34,4 @@ dependencies {
     compileOnly "org.glassfish:javax.annotation:$glassfishVersion"
     api 'com.squareup.moshi:moshi:1.5.0'
     api 'com.serjltt.moshi:moshi-lazy-adapters:2.2'
-    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
-    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 }
