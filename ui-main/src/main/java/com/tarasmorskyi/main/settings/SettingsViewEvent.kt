@@ -5,5 +5,6 @@ import com.tarasmorskyi.uicore.BaseViewEvent
 
 sealed class SettingsViewEvent : BaseViewEvent {
     object GoToSplash : SettingsViewEvent()
+    object NotifyGalleryForUpdate : SettingsViewEvent()
     class SetupSearchSettings(val searchSettings: SearchSettings) : SettingsViewEvent()
 }

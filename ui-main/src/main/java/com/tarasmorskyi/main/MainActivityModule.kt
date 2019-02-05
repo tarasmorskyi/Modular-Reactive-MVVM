@@ -6,8 +6,10 @@ import com.tarasmorskyi.gallery.GalleryFragment
 import com.tarasmorskyi.gallery.GalleryFragmentSubcomponent
 import com.tarasmorskyi.gallery.api.GalleryUiEvents
 import com.tarasmorskyi.main.api.GalleryUiEventsImpl
+import com.tarasmorskyi.main.api.SettingsUiEventsImpl
 import com.tarasmorskyi.main.settings.SettingsFragment
 import com.tarasmorskyi.main.settings.SettingsFragmentSubcomponent
+import com.tarasmorskyi.main.settings.api.SettingsUiEvents
 import com.tarasmorskyi.uicore.ViewModelKey
 import dagger.Binds
 import dagger.Module
@@ -27,6 +29,11 @@ abstract class MainActivityModule {
     internal abstract fun provideGalleryUiEvents(
         galleryUiEvents: GalleryUiEventsImpl
     ): GalleryUiEvents
+
+    @Binds
+    internal abstract fun provideSettingsUiEvents(
+        settingsUiEvents: SettingsUiEventsImpl
+    ): SettingsUiEvents
 
     @Binds
     @IntoMap

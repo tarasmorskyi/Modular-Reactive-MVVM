@@ -12,11 +12,12 @@ import com.tarasmorskyi.main.settings.api.SettingsUiEvents
 import com.tarasmorskyi.uicore.BaseFragment
 import com.tarasmorskyi.uicore.customViews.ToggleButtonGroupTableLayout
 import kotlinx.android.synthetic.main.fragment_settings.*
+import javax.inject.Inject
 
 class SettingsFragment : BaseFragment<SettingsViewEvent, SettingsViewModel>(),
     ToggleButtonGroupTableLayout.RadioButtonChecked {
 
-//    @Inject
+    @Inject
     lateinit var settingsUiEvents: SettingsUiEvents
 
     override fun onCreateView(
@@ -81,6 +82,7 @@ class SettingsFragment : BaseFragment<SettingsViewEvent, SettingsViewModel>(),
         when (useCase) {
             is SettingsViewEvent.GoToSplash -> activity?.let { settingsUiEvents.goToSplash(it) }
             is SettingsViewEvent.SetupSearchSettings -> setupSettings(useCase.searchSettings)
+            is SettingsViewEvent.NotifyGalleryForUpdate -> settingsUiEvents.updateNotifier.accept(true)
         }
     }
 

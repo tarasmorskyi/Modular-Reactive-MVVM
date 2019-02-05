@@ -1,6 +1,7 @@
 package com.tarasmorskyi.gallery
 
 import androidx.lifecycle.MutableLiveData
+import com.jakewharton.rxrelay2.PublishRelay
 import com.tarasmorskyi.dataModel.Post
 import com.tarasmorskyi.gallery.interactors.GalleryInteractor
 import com.tarasmorskyi.uicore.BaseViewModel

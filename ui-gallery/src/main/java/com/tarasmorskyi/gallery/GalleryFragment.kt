@@ -31,6 +31,8 @@ class GalleryFragment : BaseFragment<GalleryViewEvent, GalleryViewModel>() {
         return View.inflate(activity as Context, R.layout.fragment_gallery, null)
     }
 
+    lateinit var disposable: Disposable
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         list.adapter = adapter
@@ -42,6 +44,14 @@ class GalleryFragment : BaseFragment<GalleryViewEvent, GalleryViewModel>() {
         })
 
         viewModel.event(GalleryViewModelEvent.GetPosts)
+
+        disposable = galleryUiEvents.updateNotifier.subscribe { viewModel.event(GalleryViewModelEvent.GetPosts) }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        if (!disposable.isDisposed)
+            disposable.dispose()
     }
 
     override fun setupViewModel() {

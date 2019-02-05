@@ -15,23 +15,24 @@ class SettingsViewModel @Inject constructor(
             is SettingsViewModelEvent.GetSettings -> interactor.settings.map { SettingsUiModel.SetSettings(it) }.toObservable()
             is SettingsViewModelEvent.SetSettingsFilter -> interactor.setSettingsFilter(
                 useCase.filterId
-            ).andThen(Observable.empty<SettingsUiModel>())
+            ).andThen(Observable.just(SettingsUiModel.EnableSearchSettings))
             is SettingsViewModelEvent.SetSettingsMature -> interactor.setSettingsMature(
                 useCase.mature
-            ).andThen(Observable.empty<SettingsUiModel>())
+            ).andThen(Observable.just(SettingsUiModel.EnableSearchSettings))
             is SettingsViewModelEvent.SetSettingsShowViral -> interactor.setSettingsShowViral(
                 useCase.isViral
-            ).andThen(Observable.empty<SettingsUiModel>())
+            ).andThen(Observable.just(SettingsUiModel.EnableSearchSettings))
             is SettingsViewModelEvent.Logout -> interactor.logout().andThen(Observable.just(SettingsUiModel.LoggedOut))
         }
-        return Observable.empty()
     }
 
     override fun onNext(useCase: SettingsUiModel) {
         when (useCase) {
             is SettingsUiModel.SetSettings -> viewEventObservable.postValue(
-                    SettingsViewEvent.SetupSearchSettings(useCase.searchSettings))
+                SettingsViewEvent.SetupSearchSettings(useCase.searchSettings)
+            )
             is SettingsUiModel.LoggedOut -> viewEventObservable.value = SettingsViewEvent.GoToSplash
+            is SettingsUiModel.EnableSearchSettings -> viewEventObservable.value = SettingsViewEvent.NotifyGalleryForUpdate
         }
     }
 }
