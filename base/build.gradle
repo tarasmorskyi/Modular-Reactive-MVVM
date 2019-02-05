@@ -97,10 +97,10 @@ gradle.projectsEvaluated {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(':splash')
-    implementation project(':login')
-    implementation project(':main')
-    implementation project(':previewGallery')
+    implementation project(':ui-splash')
+    implementation project(':ui-login')
+    implementation project(':ui-main')
+    implementation project(':ui-previewGallery')
 
 
     implementation project(':remote')
