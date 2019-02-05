@@ -18,7 +18,7 @@ interface RemoteRepository {
 
     fun getMyPages(username: String): Maybe<List<Post>>
 
-    fun likePost(page: Post): Completable
+    fun likePost(post: Post): Completable
 
     interface RemoteService {
 

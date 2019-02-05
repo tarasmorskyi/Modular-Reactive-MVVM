@@ -12,12 +12,8 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigation
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem
 import com.tarasmorskyi.gallery.GalleryFragment
 import com.tarasmorskyi.main.settings.SettingsFragment
-import com.tarasmorskyi.mygallery.MyGalleryFragment
 import com.tarasmorskyi.uicore.BaseActivity
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
 import kotlinx.android.synthetic.main.activity_main.*
-import javax.inject.Inject
 
 class MainActivity : BaseActivity<MainViewEvent, MainViewModel>(), AHBottomNavigation.OnTabSelectedListener {
 
@@ -39,17 +35,12 @@ class MainActivity : BaseActivity<MainViewEvent, MainViewModel>(), AHBottomNavig
             R.color.black
         )
         val item2 = AHBottomNavigationItem(
-            R.string.my_gallery, R.drawable.abc_ic_star_black_16dp,
-            R.color.black
-        )
-        val item3 = AHBottomNavigationItem(
             R.string.settings, R.drawable.abc_ic_star_black_16dp,
             R.color.black
         )
         container.measureAllChildren
         bottom_navigation.addItem(item1)
         bottom_navigation.addItem(item2)
-        bottom_navigation.addItem(item3)
 
         if (savedInstanceState == null) {
             viewModel.fragmentPositionObservable.value = GALLERY
@@ -82,7 +73,6 @@ class MainActivity : BaseActivity<MainViewEvent, MainViewModel>(), AHBottomNavig
     private fun getFragmentTag(position: Int): String {
         return when (position) {
             GALLERY -> GALLERY_TAG
-            MY_GALLERY -> MY_GALLERY_TAG
             SETTINGS -> SETTINGS_TAG
             else -> GALLERY_TAG
         }
@@ -115,7 +105,6 @@ class MainActivity : BaseActivity<MainViewEvent, MainViewModel>(), AHBottomNavig
     private fun addFragment(tag: String): Fragment {
         val fragment: Fragment = when (tag) {
             GALLERY_TAG -> GalleryFragment.newInstance()
-            MY_GALLERY_TAG -> MyGalleryFragment.newInstance()
             SETTINGS_TAG -> SettingsFragment.newInstance()
             else -> GalleryFragment.newInstance()
         }
@@ -143,10 +132,8 @@ class MainActivity : BaseActivity<MainViewEvent, MainViewModel>(), AHBottomNavig
 
     companion object {
         private const val GALLERY = 0
-        private const val MY_GALLERY = 1
-        private const val SETTINGS = 2
+        private const val SETTINGS = 1
         private const val GALLERY_TAG = "gallery"
-        private const val MY_GALLERY_TAG = "my_gallery"
         private const val SETTINGS_TAG = "settings"
 
         fun createIntent(context: Context): Intent {

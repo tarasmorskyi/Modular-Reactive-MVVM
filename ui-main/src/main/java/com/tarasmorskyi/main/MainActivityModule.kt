@@ -6,6 +6,8 @@ import com.tarasmorskyi.gallery.GalleryFragment
 import com.tarasmorskyi.gallery.GalleryFragmentSubcomponent
 import com.tarasmorskyi.gallery.api.GalleryUiEvents
 import com.tarasmorskyi.main.api.GalleryUiEventsImpl
+import com.tarasmorskyi.main.settings.SettingsFragment
+import com.tarasmorskyi.main.settings.SettingsFragmentSubcomponent
 import com.tarasmorskyi.uicore.ViewModelKey
 import dagger.Binds
 import dagger.Module
@@ -14,7 +16,7 @@ import dagger.android.support.FragmentKey
 import dagger.multibindings.IntoMap
 
 
-@Module(subcomponents = [GalleryFragmentSubcomponent::class])
+@Module(subcomponents = [GalleryFragmentSubcomponent::class, SettingsFragmentSubcomponent::class])
 abstract class MainActivityModule {
     @Binds
     @IntoMap
@@ -29,7 +31,14 @@ abstract class MainActivityModule {
     @Binds
     @IntoMap
     @FragmentKey(GalleryFragment::class)
-    internal abstract fun bindAndroidInjectorFactory(
+    internal abstract fun bindGalleryFragmentAndroidInjectorFactory(
         builder: GalleryFragmentSubcomponent.Builder
+    ): AndroidInjector.Factory<out Fragment>
+
+    @Binds
+    @IntoMap
+    @FragmentKey(SettingsFragment::class)
+    internal abstract fun bindSettingsFragmentAndroidInjectorFactory(
+        builder: SettingsFragmentSubcomponent.Builder
     ): AndroidInjector.Factory<out Fragment>
 }

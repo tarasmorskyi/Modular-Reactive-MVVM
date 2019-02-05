@@ -3,7 +3,6 @@
     <string name="loading">Loading</string>
     <string name="server_error">Server error</string>
     <string name="gallery">Gallery</string>
-    <string name="my_gallery">My gallery</string>
     <string name="settings">Settings</string>
     <string name="exit_app">Are you sure you want to exit the application?</string>
     <string name="do_you_like_this_post">Do you like this post?</string>

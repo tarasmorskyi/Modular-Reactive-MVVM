@@ -23,7 +23,7 @@ constructor(
                 .toObservable()
                 .startWith(GalleryUiModel.ShowLoading)
             is GalleryViewModelEvent.PostClicked -> Observable.just(GalleryUiModel.ShowLikeDialog(useCase.post))
-            is GalleryViewModelEvent.Like -> TODO()
+            is GalleryViewModelEvent.Like -> interactor.like(useCase.post).andThen(Observable.empty())
         }
     }
 

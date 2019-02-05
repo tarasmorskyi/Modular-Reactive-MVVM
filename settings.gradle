@@ -1,1 +1,1 @@
-include ':base', ':ui-splash', ':ui-login', ':ui-core', ':remote', ':localStorage', ':dataModel', ':ui-main', ':ui-gallery', ':ui-mygallery', ':ui-previewGallery'
+include ':base', ':ui-splash', ':ui-login', ':ui-core', ':remote', ':localStorage', ':dataModel', ':ui-main', ':ui-gallery', ':ui-previewGallery'

@@ -31,8 +31,8 @@ class RemoteRepositoryImpl @Inject internal constructor(retrofit: Retrofit) : Re
             .compose(RxUtils.transformMaybeResult())
     }
 
-    override fun likePost(page: Post): Completable {
-        val link = if (page.images.size > 0) page.images[0].id else page.id
+    override fun likePost(post: Post): Completable {
+        val link = if (post.images.isNotEmpty()) post.images[0].id else post.id
         return service.votePost(link)
             .subscribeOn(Schedulers.io())
             .toSingle().ignoreElement()
