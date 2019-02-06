@@ -9,7 +9,6 @@ import com.tarasmorskyi.localstorage.LocalRepositoryImpl
 import com.tarasmorskyi.localstorage.Storage
 import com.tarasmorskyi.myapplication.BuildConfig
 import com.tarasmorskyi.myapplication.utils.MoshiDateAdapter
-import com.tarasmorskyi.myapplication.utils.MyAdapterFactory
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -18,8 +17,9 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
-@Module(includes = arrayOf(StorageModule::class))
+@Module(includes = [StorageModule::class])
 class DomainToolsModule {
+
     @Provides
     @Singleton
     internal fun okHttpClient(storage: Storage): OkHttpClient {
@@ -35,7 +35,7 @@ class DomainToolsModule {
             builder.addInterceptor { chain ->
                 val request = chain.request().newBuilder()
                     .addHeader(
-                        "Authorization", "Bearer " + token
+                        "Authorization", "Bearer $token"
                     ).build()
                 chain.proceed(request)
             }
@@ -43,7 +43,7 @@ class DomainToolsModule {
             builder.addInterceptor { chain ->
                 val request = chain.request().newBuilder()
                     .addHeader(
-                        "Authorization", "Client-ID 9a9f8a8c12cb9ce"
+                        "Authorization", "Client-ID " + BuildConfig.CLIENT_ID
                     ).build()
                 chain.proceed(request)
             }
@@ -66,7 +66,6 @@ class DomainToolsModule {
     internal fun provideDefaultMoshiBuilder(): Moshi.Builder {
         return Moshi.Builder()
             .add(MoshiDateAdapter())
-            .add(MyAdapterFactory.create())
             .add(Wrapped.ADAPTER_FACTORY)
     }
 

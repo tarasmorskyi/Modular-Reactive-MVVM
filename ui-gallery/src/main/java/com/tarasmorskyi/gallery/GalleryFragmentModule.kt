@@ -9,6 +9,7 @@ import dagger.multibindings.IntoMap
 
 @Module
 abstract class GalleryFragmentModule {
+
     @Binds
     @IntoMap
     @ViewModelKey(GalleryViewModel::class)

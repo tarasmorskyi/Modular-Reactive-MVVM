@@ -7,7 +7,7 @@ import io.reactivex.Maybe
 import javax.inject.Inject
 
 class SplashRepoEventsImpl @Inject internal constructor(
-    val local: LocalRepository
+    private val local: LocalRepository
 ) : SplashRepoEvents {
 
     override fun isLoggedIn(): Maybe<Boolean> {

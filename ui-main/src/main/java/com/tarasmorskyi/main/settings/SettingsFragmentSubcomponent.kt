@@ -5,7 +5,7 @@ import dagger.Subcomponent
 import dagger.android.AndroidInjector
 
 
-@Subcomponent(modules = arrayOf(SettingsFragmentModule::class))
+@Subcomponent(modules = [SettingsFragmentModule::class])
 @FragmentScope
 interface SettingsFragmentSubcomponent : AndroidInjector<SettingsFragment> {
     @Subcomponent.Builder

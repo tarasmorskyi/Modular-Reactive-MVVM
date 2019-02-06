@@ -4,7 +4,7 @@ import com.tarasmorskyi.uicore.FragmentScope
 import dagger.Subcomponent
 import dagger.android.AndroidInjector
 
-@Subcomponent(modules = arrayOf(GalleryFragmentModule::class))
+@Subcomponent(modules = [GalleryFragmentModule::class])
 @FragmentScope
 interface GalleryFragmentSubcomponent : AndroidInjector<GalleryFragment> {
     @Subcomponent.Builder

@@ -1,5 +1,6 @@
 package com.tarasmorskyi.main
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -17,8 +18,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity<MainViewEvent, MainViewModel>(), AHBottomNavigation.OnTabSelectedListener {
 
-    internal var selectedView: Int = -1
-    lateinit private var currentFragment: Fragment
+    private var selectedView: Int = -1
+    private lateinit var currentFragment: Fragment
     private var doubleBackToExitPressedOnce: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +29,7 @@ class MainActivity : BaseActivity<MainViewEvent, MainViewModel>(), AHBottomNavig
         setContentView(R.layout.activity_main)
     }
 
+    @SuppressLint("PrivateResource")
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
         val item1 = AHBottomNavigationItem(
@@ -45,6 +47,7 @@ class MainActivity : BaseActivity<MainViewEvent, MainViewModel>(), AHBottomNavig
         if (savedInstanceState == null) {
             viewModel.fragmentPositionObservable.value = GALLERY
         }
+
         viewModel.fragmentPositionObservable.value?.let {
             bottom_navigation.currentItem = it
         }
@@ -53,7 +56,7 @@ class MainActivity : BaseActivity<MainViewEvent, MainViewModel>(), AHBottomNavig
     }
 
     override fun onEvent(useCase: MainViewEvent) {
-        TODO("not implemented") //
+        TODO("not implemented")
     }
 
     override fun onTabSelected(position: Int, wasSelected: Boolean): Boolean {
@@ -65,17 +68,16 @@ class MainActivity : BaseActivity<MainViewEvent, MainViewModel>(), AHBottomNavig
         if (selectedView == position) {
             return
         }
+
         selectedView = position
         injectFragment(getFragmentTag(position))
         bottom_navigation.currentItem = position
     }
 
-    private fun getFragmentTag(position: Int): String {
-        return when (position) {
-            GALLERY -> GALLERY_TAG
-            SETTINGS -> SETTINGS_TAG
-            else -> GALLERY_TAG
-        }
+    private fun getFragmentTag(position: Int): String = when (position) {
+        GALLERY -> GALLERY_TAG
+        SETTINGS -> SETTINGS_TAG
+        else -> GALLERY_TAG
     }
 
     private fun getPreviousView(): Int {

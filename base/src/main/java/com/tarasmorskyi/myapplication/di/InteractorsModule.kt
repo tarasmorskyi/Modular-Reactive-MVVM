@@ -10,11 +10,10 @@ import com.tarasmorskyi.main.interactors.MainInteractor
 import com.tarasmorskyi.main.interactors.MainInteractorImpl
 import com.tarasmorskyi.main.settings.interactors.SettingsInteractor
 import com.tarasmorskyi.main.settings.interactors.SettingsInteractorImpl
-import com.tarasmorskyi.splash.splash.interactors.SplashInteractor
-import com.tarasmorskyi.splash.splash.interactors.SplashInteractorImpl
+import com.tarasmorskyi.splash.interactors.SplashInteractor
+import com.tarasmorskyi.splash.interactors.SplashInteractorImpl
 import dagger.Binds
 import dagger.Module
-
 
 @Module
 abstract class InteractorsModule {

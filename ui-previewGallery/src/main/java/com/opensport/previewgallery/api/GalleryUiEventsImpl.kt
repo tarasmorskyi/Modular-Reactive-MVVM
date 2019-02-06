@@ -10,9 +10,13 @@ import javax.inject.Inject
 class GalleryUiEventsImpl @Inject constructor() : GalleryUiEvents {
 
     override fun showLikeDialog(activity: AppCompatActivity, likeEvent: (Unit) -> Unit) {
-        Toast.makeText(activity, "PreviewActivity", Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity, TOAST_MESSAGE, Toast.LENGTH_SHORT).show()
     }
 
     override val updateNotifier: Relay<Boolean>
         get() = PublishRelay.create()
+
+    companion object {
+        const val TOAST_MESSAGE = "Login to be able to like"
+    }
 }

@@ -8,7 +8,9 @@ import io.reactivex.Completable
 import io.reactivex.Maybe
 import javax.inject.Inject
 
-class SettingsRepoEventsImpl @Inject constructor(private val local: LocalRepository) : SettingsRepoEvents {
+class SettingsRepoEventsImpl @Inject constructor(
+    private val local: LocalRepository
+) : SettingsRepoEvents {
 
     override val settings: Maybe<SearchSettings> = local.searchSettings
 
@@ -17,5 +19,4 @@ class SettingsRepoEventsImpl @Inject constructor(private val local: LocalReposit
     override fun logout(): Completable = local.setUserAuthenticationData(
         UserAuthenticationData()
     )
-
 }

@@ -16,12 +16,11 @@ import dagger.multibindings.IntoMap
 
 @Module(subcomponents = [GalleryFragmentSubcomponent::class])
 abstract class PreviewGalleryActivityModule {
+
     @Binds
     @IntoMap
     @ViewModelKey(PreviewGalleryViewModel::class)
     abstract fun bindPreviewGalleryViewModel(viewModel: PreviewGalleryViewModel): ViewModel
-
-
 
     @Binds
     internal abstract fun provideGalleryUiEvents(

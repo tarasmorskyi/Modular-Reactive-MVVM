@@ -5,9 +5,9 @@ import android.content.SharedPreferences
 import com.squareup.moshi.Moshi
 
 
-class Storage private constructor(preferences: SharedPreferences, moshi: Moshi) : MoshiStorage(
-    preferences, moshi
-) {
+class Storage private constructor(
+    preferences: SharedPreferences, moshi: Moshi
+) : MoshiStorage(preferences, moshi) {
     companion object {
 
         private var instance: Storage? = null
@@ -21,7 +21,7 @@ class Storage private constructor(preferences: SharedPreferences, moshi: Moshi) 
         }
 
         @Synchronized
-        protected fun getDefault(context: Context, name: String): Storage {
+        private fun getDefault(context: Context, name: String): Storage {
             if (instance == null) {
                 instance = createInstance(context, name, Moshi.Builder().build())
             }
@@ -41,7 +41,7 @@ class Storage private constructor(preferences: SharedPreferences, moshi: Moshi) 
             moshi: Moshi
         ): Storage {
             val sharedPreferences = context.getSharedPreferences(
-                sharedPreferencesName ?: context.packageName+"_JsonStorage", Context.MODE_PRIVATE
+                sharedPreferencesName ?: context.packageName + "_JsonStorage", Context.MODE_PRIVATE
             )
             return Storage(sharedPreferences, moshi)
         }

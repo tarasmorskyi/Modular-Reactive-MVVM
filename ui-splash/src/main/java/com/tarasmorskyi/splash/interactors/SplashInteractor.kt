@@ -1,7 +1,8 @@
-package com.tarasmorskyi.splash.splash.interactors
+package com.tarasmorskyi.splash.interactors
 
 import io.reactivex.Maybe
 
 interface SplashInteractor {
+
     fun isLoggedIn(): Maybe<Boolean>
 }

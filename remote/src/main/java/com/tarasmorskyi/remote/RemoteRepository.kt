@@ -22,7 +22,7 @@ interface RemoteRepository {
 
     interface RemoteService {
 
-        @Wrapped(path = arrayOf("data"))
+        @Wrapped(path = ["data"])
         @GET("3/gallery/{section}/{sort}/{window}/{page}")
         fun getPages(
             @Path("section") section: String,
@@ -32,7 +32,7 @@ interface RemoteRepository {
         )
                 : Maybe<Result<List<Post>>>
 
-        @Wrapped(path = arrayOf("data"))
+        @Wrapped(path = ["data"])
         @GET("3/account/{username}/favorites/0/newest")
         fun getMyPages(@Path("username") username: String)
                 : Maybe<Result<List<Post>>>

@@ -20,6 +20,7 @@ import dagger.multibindings.IntoMap
 
 @Module(subcomponents = [GalleryFragmentSubcomponent::class, SettingsFragmentSubcomponent::class])
 abstract class MainActivityModule {
+
     @Binds
     @IntoMap
     @ViewModelKey(MainViewModel::class)

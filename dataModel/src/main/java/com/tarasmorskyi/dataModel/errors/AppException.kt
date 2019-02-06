@@ -5,6 +5,7 @@ import android.os.Build
 
 
 class AppException : Exception {
+
     constructor()
 
     constructor(message: String) : super(message)

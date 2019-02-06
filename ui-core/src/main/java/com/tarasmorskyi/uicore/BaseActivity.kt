@@ -9,8 +9,8 @@ import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
 
-abstract class BaseActivity<VE : BaseViewEvent, VM : BaseViewModel<out BaseUiModel, out BaseViewModelEvent, VE>> :
-    DaggerAppCompatActivity() {
+abstract class BaseActivity<VE : BaseViewEvent, VM : BaseViewModel<out BaseUiModel, out BaseViewModelEvent, VE>>
+    : DaggerAppCompatActivity() {
 
     @Inject
     lateinit var viewModeFactory: DaggerViewModelFactory
@@ -45,5 +45,4 @@ abstract class BaseActivity<VE : BaseViewEvent, VM : BaseViewModel<out BaseUiMod
     }
 
     abstract fun onEvent(useCase: VE)
-
 }

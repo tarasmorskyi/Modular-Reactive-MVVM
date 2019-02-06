@@ -10,8 +10,8 @@ import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
 
-abstract class BaseFragment<VE : BaseViewEvent, VM : BaseViewModel<out BaseUiModel, out BaseViewModelEvent, VE>> :
-    Fragment() {
+abstract class BaseFragment<VE : BaseViewEvent, VM : BaseViewModel<out BaseUiModel, out BaseViewModelEvent, VE>>
+    : Fragment() {
 
     @Inject
     lateinit var viewModeFactory: DaggerViewModelFactory
@@ -49,5 +49,4 @@ abstract class BaseFragment<VE : BaseViewEvent, VM : BaseViewModel<out BaseUiMod
     abstract fun setupViewModel()
 
     abstract fun onEvent(useCase: VE)
-
 }

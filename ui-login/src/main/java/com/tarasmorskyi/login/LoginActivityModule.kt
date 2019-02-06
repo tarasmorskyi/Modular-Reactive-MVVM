@@ -9,6 +9,7 @@ import dagger.multibindings.IntoMap
 
 @Module
 abstract class LoginActivityModule {
+
     @Binds
     @IntoMap
     @ViewModelKey(LoginViewModel::class)

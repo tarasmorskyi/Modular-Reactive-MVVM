@@ -5,8 +5,6 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
 
-
-
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 28
@@ -14,7 +12,6 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -35,11 +32,11 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api project(':dataModel')
 
-    compileOnly 'org.glassfish:javax.annotation:10.0-b28'
-    api 'com.squareup.okhttp3:okhttp:3.10.0'
+    compileOnly "org.glassfish:javax.annotation:$glassfishVersion"
+    api "com.squareup.okhttp3:okhttp:$okhttp"
     api "com.squareup.retrofit2:retrofit:$retrofitVersion"
     api "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
     api "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
-    api 'com.squareup.moshi:moshi:1.5.0'
-    api 'com.serjltt.moshi:moshi-lazy-adapters:2.2'
+    api "com.squareup.moshi:moshi:$moshi"
+    api "com.serjltt.moshi:moshi-lazy-adapters:$moshiLazyAdapters"
 }

@@ -53,13 +53,13 @@ class PostsAdapter @Inject constructor() : RecyclerView.Adapter<PostsAdapter.Con
     ) : RecyclerView.ViewHolder(
         view
     ), View.OnClickListener {
-        lateinit private var post: Post
+        private lateinit var post: Post
 
         fun setPost(post: Post) {
             this.post = post
             view.title.text = post.title
 
-            if (post.images.size > 0) {
+            if (post.images.isNotEmpty()) {
                 Glide
                     .with(view.photo.context)
                     .load(post.images[0].link)

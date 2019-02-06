@@ -28,5 +28,4 @@ class LikeDialog : DialogFragment() {
     fun setCallBack(callback: (Unit) -> Unit) {
         this.callback = callback
     }
-
 }

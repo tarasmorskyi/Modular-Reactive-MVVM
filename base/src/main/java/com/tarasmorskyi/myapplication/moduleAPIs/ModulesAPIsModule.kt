@@ -1,8 +1,8 @@
 package com.tarasmorskyi.myapplication.moduleAPIs
 
-import com.tarasmorskyi.api.LoginRepoEvents
-import com.tarasmorskyi.api.LoginUiEvents
 import com.tarasmorskyi.gallery.api.GalleryRepoEvents
+import com.tarasmorskyi.login.api.LoginRepoEvents
+import com.tarasmorskyi.login.api.LoginUiEvents
 import com.tarasmorskyi.main.api.MainUiEvents
 import com.tarasmorskyi.main.settings.api.SettingsRepoEvents
 import com.tarasmorskyi.myapplication.moduleAPIs.repoEvents.GalleryRepoEventsImpl
@@ -20,6 +20,7 @@ import dagger.Module
 
 @Module
 abstract class ModulesAPIsModule {
+
     @ActivityScope
     @Binds
     internal abstract fun provideSplashUiEvents(

@@ -1,4 +1,4 @@
-package com.tarasmorskyi.splash.splash
+package com.tarasmorskyi.splash
 
 import androidx.lifecycle.ViewModel
 import com.tarasmorskyi.uicore.ViewModelKey
@@ -9,6 +9,7 @@ import dagger.multibindings.IntoMap
 
 @Module
 abstract class SplashActivityModule {
+
     @Binds
     @IntoMap
     @ViewModelKey(SplashViewModel::class)

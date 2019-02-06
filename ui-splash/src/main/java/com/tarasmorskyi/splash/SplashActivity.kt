@@ -1,10 +1,9 @@
-package com.tarasmorskyi.splash.splash
+package com.tarasmorskyi.splash
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
-import com.tarasmorskyi.splash.R
 import com.tarasmorskyi.splash.api.SplashUiEvents
 import com.tarasmorskyi.uicore.BaseActivity
 import javax.inject.Inject
@@ -26,7 +25,7 @@ class SplashActivity : BaseActivity<SplashViewEvent, SplashViewModel>() {
     }
 
     override fun onEvent(useCase: SplashViewEvent) {
-        when(useCase){
+        when (useCase) {
             is SplashViewEvent.GoToLogin -> {
                 splashUiEvents.startLoginScreen(this)
             }

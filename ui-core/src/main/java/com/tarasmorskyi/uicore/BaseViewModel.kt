@@ -11,11 +11,12 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.subjects.PublishSubject
 
 
-abstract class BaseViewModel<UIM : BaseUiModel, VME : BaseViewModelEvent, VE : BaseViewEvent> : ViewModel(),
-    Observer<UIM> {
+abstract class BaseViewModel<UIM : BaseUiModel, VME : BaseViewModelEvent, VE : BaseViewEvent>
+    : ViewModel(), Observer<UIM> {
+
     private val disposables = CompositeDisposable()
 
-    protected val events: PublishSubject<VME> = PublishSubject.create<VME>()
+    private val events: PublishSubject<VME> = PublishSubject.create<VME>()
 
     var errorObservable: MutableLiveData<Throwable> = MutableLiveData()
 

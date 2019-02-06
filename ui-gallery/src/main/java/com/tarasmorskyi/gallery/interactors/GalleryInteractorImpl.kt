@@ -6,7 +6,9 @@ import io.reactivex.Completable
 import io.reactivex.Maybe
 import javax.inject.Inject
 
-class GalleryInteractorImpl @Inject constructor(private val galleryRepoEvents: GalleryRepoEvents) : GalleryInteractor {
+class GalleryInteractorImpl @Inject constructor(
+    private val galleryRepoEvents: GalleryRepoEvents
+) : GalleryInteractor {
 
     override fun like(post: Post): Completable = galleryRepoEvents.like(post)
 

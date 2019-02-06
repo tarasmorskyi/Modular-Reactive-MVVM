@@ -11,7 +11,9 @@ import javax.inject.Inject
 
 
 @Reusable
-class RemoteRepositoryImpl @Inject internal constructor(retrofit: Retrofit) : RemoteRepository {
+class RemoteRepositoryImpl @Inject internal constructor(
+    retrofit: Retrofit
+) : RemoteRepository {
 
     private val service: RemoteRepository.RemoteService = retrofit.create(RemoteRepository.RemoteService::class.java)
 

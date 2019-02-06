@@ -8,8 +8,8 @@ import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.lifecycle.ViewModelProviders
-import com.tarasmorskyi.api.LoginUiEvents
 import com.tarasmorskyi.dataModel.UserAuthenticationData
+import com.tarasmorskyi.login.api.LoginUiEvents
 import com.tarasmorskyi.uicore.BaseActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import java.util.*
@@ -42,7 +42,7 @@ class LoginActivity : BaseActivity<LoginViewEvent, LoginViewModel>() {
         webView.clearFormData()
         webView.settings.javaScriptEnabled = true
 
-        webView.loadUrl("https://api.imgur.com/oauth2/authorize?client_id=9a9f8a8c12cb9ce&response_type=token&state=demoapp")
+        webView.loadUrl(LOGIN_URL)
 
         withoutLogin.setOnClickListener { loginUiEvents.startPreviewGalleryScreen(this) }
     }
@@ -72,6 +72,9 @@ class LoginActivity : BaseActivity<LoginViewEvent, LoginViewModel>() {
     }
 
     companion object {
+
+        const val LOGIN_URL =
+            "https://api.imgur.com/oauth2/authorize?client_id=" + BuildConfig.CLIENT_ID + "&response_type=token&state=demoapp"
 
         fun createIntent(context: Context): Intent {
             return Intent(context, LoginActivity::class.java)

@@ -9,19 +9,19 @@ import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 
 
-class App : DaggerApplication {
+class App : DaggerApplication() {
 
-    lateinit var applicationEnvironment: ApplicationEnvironment
+    private lateinit var applicationEnvironment: ApplicationEnvironment
 
     companion object {
         private lateinit var application: App
 
-        fun getInstance() : App {
+        fun getInstance(): App {
             return application
         }
     }
 
-    constructor(){
+    init {
         application = this
     }
 
@@ -38,7 +38,7 @@ class App : DaggerApplication {
     }
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        var builder : AppComponent.Builder = DaggerAppComponent.builder()
+        val builder: AppComponent.Builder = DaggerAppComponent.builder()
         builder.seedInstance(this)
         return builder.build().androidInjector()
     }

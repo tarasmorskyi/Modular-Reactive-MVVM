@@ -31,7 +31,7 @@ class PreviewGalleryActivity : BaseActivity<PreviewGalleryViewEvent, PreviewGall
     }
 
     override fun onEvent(useCase: PreviewGalleryViewEvent) {
-        TODO("not implemented") //
+        TODO("not implemented")
     }
 
     private fun injectFragment() {
@@ -57,8 +57,7 @@ class PreviewGalleryActivity : BaseActivity<PreviewGalleryViewEvent, PreviewGall
     companion object {
 
         fun createIntent(context: Context): Intent {
-            val intent = Intent(context, PreviewGalleryActivity::class.java)
-            return intent
+            return Intent(context, PreviewGalleryActivity::class.java)
         }
     }
 }

@@ -12,10 +12,10 @@ import dagger.Subcomponent
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 
-
 @SuppressWarnings("StaticMethodOnlyUsedInOneClass", "squid:S1118", "squid:S1610")
 @Module(subcomponents = [SessionModule.SessionComponent::class])
 internal abstract class SessionModule {
+
     @Module
     companion object {
         @Provides

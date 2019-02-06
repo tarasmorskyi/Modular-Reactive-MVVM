@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.tarasmorskyi.gallery.api.GalleryUiEvents
 import com.tarasmorskyi.uicore.BaseFragment
 import com.tarasmorskyi.uicore.adapters.PostsAdapter
-import io.reactivex.disposables.Disposable
+import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.fragment_gallery.*
 import javax.inject.Inject
 
@@ -22,7 +22,7 @@ class GalleryFragment : BaseFragment<GalleryViewEvent, GalleryViewModel>() {
     @Inject
     lateinit var galleryUiEvents: GalleryUiEvents
 
-    private lateinit var clicksStream: Disposable
+    private val disposables = CompositeDisposable()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,27 +31,30 @@ class GalleryFragment : BaseFragment<GalleryViewEvent, GalleryViewModel>() {
         return View.inflate(activity as Context, R.layout.fragment_gallery, null)
     }
 
-    lateinit var disposable: Disposable
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         list.adapter = adapter
-        clicksStream = adapter.clicks
-            .map { GalleryViewModelEvent.PostClicked(it) }
-            .toObservable().subscribe { viewModel.event(it) }
-        viewModel.postsObservable.observe(this, Observer {
+        disposables.add(
+            adapter.clicks
+                .map { GalleryViewModelEvent.PostClicked(it) }
+                .toObservable().subscribe { viewModel.event(it) }
+        )
+        viewModel.postsObservable.observe(this, Observer
+        {
             adapter.setItems(it)
         })
 
         viewModel.event(GalleryViewModelEvent.GetPosts)
 
-        disposable = galleryUiEvents.updateNotifier.subscribe { viewModel.event(GalleryViewModelEvent.GetPosts) }
+        disposables.add(
+            galleryUiEvents.updateNotifier.subscribe { viewModel.event(GalleryViewModelEvent.GetPosts) }
+        )
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        if (!disposable.isDisposed)
-            disposable.dispose()
+        if (!disposables.isDisposed)
+            disposables.dispose()
     }
 
     override fun setupViewModel() {

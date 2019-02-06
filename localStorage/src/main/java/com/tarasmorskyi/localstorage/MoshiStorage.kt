@@ -8,7 +8,8 @@ import java.util.*
 
 
 abstract class MoshiStorage @SuppressLint("CommitPrefEdits") internal constructor(
-    private val preferences: SharedPreferences, private val moshi: Moshi
+    private val preferences: SharedPreferences,
+    private val moshi: Moshi
 ) {
 
     private val editor: SharedPreferences.Editor = preferences.edit()

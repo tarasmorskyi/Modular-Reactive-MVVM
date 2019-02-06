@@ -6,8 +6,10 @@ import com.tarasmorskyi.main.settings.api.SettingsUiEvents
 import javax.inject.Inject
 
 
-class SettingsUiEventsImpl @Inject constructor(private val mainUiEvents: MainUiEvents)
-    : SettingsUiEvents {
+class SettingsUiEventsImpl @Inject constructor(
+    private val mainUiEvents: MainUiEvents
+) : SettingsUiEvents {
+
     override fun goToSplash(activity: Activity) = mainUiEvents.goToSplash(activity)
 
     override val updateNotifier: Relay<Boolean> = mainUiEvents.updateNotifier

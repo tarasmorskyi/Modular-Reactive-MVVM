@@ -1,6 +1,6 @@
 package com.tarasmorskyi.dataModel
 
 object Constants {
-    val EMPTY_STRING = ""
-    val INVALID = -1
+    const val EMPTY_STRING = ""
+    const val INVALID = -1
 }

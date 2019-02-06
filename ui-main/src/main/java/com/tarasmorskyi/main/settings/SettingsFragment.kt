@@ -24,8 +24,7 @@ class SettingsFragment : BaseFragment<SettingsViewEvent, SettingsViewModel>(),
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = View.inflate(activity as Context, R.layout.fragment_settings, null)
-        return view
+        return View.inflate(activity as Context, R.layout.fragment_settings, null)
     }
 
     override fun setupViewModel() {
@@ -39,21 +38,21 @@ class SettingsFragment : BaseFragment<SettingsViewEvent, SettingsViewModel>(),
 
     private fun setupSettings(searchSettings: SearchSettings) {
         when (searchSettings.section) {
-            "hot" -> rgSection.onClick(hot)
-            "top" -> rgSection.onClick(top)
-            "user" -> rgSection.onClick(user)
+            SearchSettings.HOT -> rgSection.onClick(hot)
+            SearchSettings.TOP -> rgSection.onClick(top)
+            SearchSettings.USER -> rgSection.onClick(user)
         }
         when (searchSettings.sort) {
-            "viral" -> rgSort.onClick(viral)
-            "top" -> rgSort.onClick(topSort)
-            "time" -> rgSort.onClick(time)
+            SearchSettings.VIRAL -> rgSort.onClick(viral)
+            SearchSettings.TOP -> rgSort.onClick(topSort)
+            SearchSettings.TIME -> rgSort.onClick(time)
         }
         when (searchSettings.window) {
-            "day" -> rgWindow.onClick(day)
-            "week" -> rgWindow.onClick(week)
-            "month" -> rgWindow.onClick(month)
-            "year" -> rgWindow.onClick(year)
-            "all" -> rgWindow.onClick(all)
+            SearchSettings.DAY -> rgWindow.onClick(day)
+            SearchSettings.WEEK -> rgWindow.onClick(week)
+            SearchSettings.MONTH -> rgWindow.onClick(month)
+            SearchSettings.YEAR -> rgWindow.onClick(year)
+            SearchSettings.ALL -> rgWindow.onClick(all)
         }
         rgSection.onRadioButtonChecked(this)
         rgSort.onRadioButtonChecked(this)
@@ -81,7 +80,9 @@ class SettingsFragment : BaseFragment<SettingsViewEvent, SettingsViewModel>(),
     override fun onEvent(useCase: SettingsViewEvent) {
         when (useCase) {
             is SettingsViewEvent.GoToSplash -> activity?.let { settingsUiEvents.goToSplash(it) }
+
             is SettingsViewEvent.SetupSearchSettings -> setupSettings(useCase.searchSettings)
+
             is SettingsViewEvent.NotifyGalleryForUpdate -> settingsUiEvents.updateNotifier.accept(true)
         }
     }

@@ -18,16 +18,22 @@ internal object RxUtils {
     private val NOT_AUTHORIZED = 401
     private val UNPROCESSABLE_ENTITY = 422
 
+    private const val NETWORK_CONNECTION_PROBLEM = "network connection problem"
+    private const val SOCKET_TIMEOUT = "socket timeout"
+    private const val CONNECT_EXCEPTION = "connect exception"
+    private const val OTHER_NETWORK_EXCEPTOPN = "other network exception"
+    private const val ERROR_PARSING_ERROR = "error parsing error body"
+
     fun <T> transformObservableResult(): ObservableTransformer<Result<T>, T> {
         return ObservableTransformer { response -> response.map { returnResultOrError(it) } }
     }
 
     fun <T> transformSingleResult(): SingleTransformer<Result<T>, T> {
-        return SingleTransformer{ response -> response.map {returnResultOrError(it) } }
+        return SingleTransformer { response -> response.map { returnResultOrError(it) } }
     }
 
     fun <T> transformMaybeResult(): MaybeTransformer<Result<T>, T> {
-        return MaybeTransformer{ response -> response.map { returnResultOrError(it) } }
+        return MaybeTransformer { response -> response.map { returnResultOrError(it) } }
     }
 
     @Throws(AppError::class)
@@ -47,24 +53,24 @@ internal object RxUtils {
                 return handleServerError(response)
             }
         }
-        throw ResponseError(OTHER_ERROR_CODE, "network connection problem")
+        throw ResponseError(OTHER_ERROR_CODE, NETWORK_CONNECTION_PROBLEM)
     }
 
     private fun <T> logErrorMessage(result: Result<T>) {
         if (result.error() is SocketTimeoutException) {
-            Timber.w(result.error(), "socket timeout")
+            Timber.w(result.error(), SOCKET_TIMEOUT)
         } else if (result.error() is IOException) {
             if (result.error() is java.net.ConnectException) {
-                Timber.w(result.error(), "connect exception")
+                Timber.w(result.error(), CONNECT_EXCEPTION)
             } else {
-                Timber.w(result.error(), "other network io exception")
+                Timber.w(result.error(), OTHER_NETWORK_EXCEPTOPN)
                 val response = result.response()
                 if (response != null) {
                     Timber.d("body: %s", response.raw().toString())
                 }
             }
         } else {
-            Timber.w(result.error(), "some other network exception")
+            Timber.w(result.error(), OTHER_NETWORK_EXCEPTOPN)
         }
     }
 
@@ -82,8 +88,7 @@ internal object RxUtils {
                     bodyContent = body.toString()
                 }
             } catch (e: Exception) {
-                Timber.d("error parsing error body")
-                //ignored
+                Timber.d(ERROR_PARSING_ERROR)
             }
 
         }

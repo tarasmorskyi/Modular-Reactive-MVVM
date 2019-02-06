@@ -6,9 +6,9 @@ import com.tarasmorskyi.uicore.BaseViewModel
 import io.reactivex.ObservableSource
 import javax.inject.Inject
 
-class MainViewModel @Inject
-constructor(private val interactor: MainInteractor) :
-    BaseViewModel<MainUiModel, MainViewModelEvent, MainViewEvent>() {
+class MainViewModel @Inject constructor(
+    private val interactor: MainInteractor
+) : BaseViewModel<MainUiModel, MainViewModelEvent, MainViewEvent>() {
 
     var fragmentPositionObservable = MutableLiveData<Int>()
 

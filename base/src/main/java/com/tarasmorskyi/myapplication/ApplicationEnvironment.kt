@@ -7,14 +7,8 @@ import io.reactivex.disposables.Disposable
 import timber.log.Timber
 
 
-class ApplicationEnvironment : CompletableObserver {
+class ApplicationEnvironment(var app: App) : CompletableObserver {
 
-    var app: App
-
-
-    constructor(app: App) {
-        this.app = app
-    }
 
     internal fun init() {
         if (BuildConfig.DEBUG) {
@@ -46,7 +40,5 @@ class ApplicationEnvironment : CompletableObserver {
     }
 
     companion object {
-
-        private val ONE_FRAME = 16
     }
 }
