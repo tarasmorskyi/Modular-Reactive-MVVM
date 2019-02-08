@@ -1,7 +1,10 @@
 package com.tarasmorskyi.myapplication
 
+import android.content.Context
 import android.util.Log
 import com.facebook.stetho.Stetho
+import com.squareup.picasso.OkHttp3Downloader
+import com.squareup.picasso.Picasso
 import io.reactivex.CompletableObserver
 import io.reactivex.disposables.Disposable
 import timber.log.Timber
@@ -17,6 +20,12 @@ class ApplicationEnvironment(var app: App) : CompletableObserver {
         } else {
             Timber.plant(CrashReportingTree())
         }
+        val builder = Picasso.Builder(app as Context)
+        builder.downloader(OkHttp3Downloader(app as Context, Long.MAX_VALUE))
+        val built = builder.build()
+        built.setIndicatorsEnabled(true)
+        built.isLoggingEnabled = true
+        Picasso.setSingletonInstance(built)
     }
 
     override fun onSubscribe(d: Disposable) {

@@ -46,13 +46,11 @@ class MainActivity : BaseActivity<MainViewEvent, MainViewModel>(), AHBottomNavig
 
         if (savedInstanceState == null) {
             viewModel.fragmentPositionObservable.value = GALLERY
-        }
+        } else {
 
-        viewModel.fragmentPositionObservable.value?.let {
-            bottom_navigation.currentItem = it
         }
-        bottom_navigation.setOnTabSelectedListener(this)
         viewModel.fragmentPositionObservable.observe(this, Observer { injectView(it) })
+        bottom_navigation.setOnTabSelectedListener(this)
     }
 
     override fun onEvent(useCase: MainViewEvent) {
@@ -100,7 +98,7 @@ class MainActivity : BaseActivity<MainViewEvent, MainViewModel>(), AHBottomNavig
         val newView = selectedView.toString()
         if (newView != getPreviousView().toString()) {
             ts.show(currentFragment)
-            ts.commitAllowingStateLoss()
+            ts.commit()
         }
     }
 

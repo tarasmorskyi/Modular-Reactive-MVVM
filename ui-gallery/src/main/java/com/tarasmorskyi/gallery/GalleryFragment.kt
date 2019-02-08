@@ -6,19 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.tarasmorskyi.gallery.api.GalleryUiEvents
 import com.tarasmorskyi.uicore.BaseFragment
-import com.tarasmorskyi.uicore.adapters.PostsAdapter
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.fragment_gallery.*
 import javax.inject.Inject
 
+
 class GalleryFragment : BaseFragment<GalleryViewEvent, GalleryViewModel>() {
 
-    @Inject
-    lateinit var adapter: PostsAdapter
     @Inject
     lateinit var galleryUiEvents: GalleryUiEvents
 
@@ -33,23 +30,26 @@ class GalleryFragment : BaseFragment<GalleryViewEvent, GalleryViewModel>() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        list.adapter = adapter
+
+        list.apply {
+            setHasFixedSize(true)
+            setItemViewCacheSize(20)
+            adapter = viewModel.adapter
+        }
         disposables.add(
-            adapter.clicks
+            viewModel.adapter.clicks
                 .map { GalleryViewModelEvent.PostClicked(it) }
                 .toObservable().subscribe { viewModel.event(it) }
         )
-        viewModel.postsObservable.observe(this, Observer
-        {
-            adapter.setItems(it)
-        })
 
-        viewModel.event(GalleryViewModelEvent.GetPosts)
+        if (savedInstanceState == null)
+            viewModel.event(GalleryViewModelEvent.GetPosts)
 
         disposables.add(
             galleryUiEvents.updateNotifier.subscribe { viewModel.event(GalleryViewModelEvent.GetPosts) }
         )
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

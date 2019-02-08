@@ -4,7 +4,6 @@
 
     <application>
         <activity android:name="com.tarasmorskyi.splash.SplashActivity"
-                android:label="@string/title_activity_splash"
                 android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

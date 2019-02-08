@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import com.squareup.picasso.Picasso
 import com.tarasmorskyi.dataModel.Post
 import com.tarasmorskyi.uicore.R
 import io.reactivex.BackpressureStrategy
@@ -16,6 +16,7 @@ import javax.inject.Inject
 
 
 class PostsAdapter @Inject constructor() : RecyclerView.Adapter<PostsAdapter.ContactViewHolder>() {
+
 
     private val onClick = PublishSubject.create<Post>()
     private var posts: List<Post>
@@ -50,26 +51,18 @@ class PostsAdapter @Inject constructor() : RecyclerView.Adapter<PostsAdapter.Con
 
     inner class ContactViewHolder(
         private val view: View
-    ) : RecyclerView.ViewHolder(
-        view
-    ), View.OnClickListener {
+    ) : RecyclerView.ViewHolder(view), View.OnClickListener {
         private lateinit var post: Post
 
         fun setPost(post: Post) {
             this.post = post
             view.title.text = post.title
 
-            if (post.images.isNotEmpty()) {
-                Glide
-                    .with(view.photo.context)
-                    .load(post.images[0].link)
-                    .into(view.photo)
-            } else
-                Glide
-                    .with(view.photo.context)
-                    .load(post.link)
-                    .into(view.photo)
-
+            Picasso.get()
+                .load(post.images[0].link)
+                .noFade()
+                .noPlaceholder()
+                .into(view.photo)
 
             view.photo.setOnClickListener(this)
         }
