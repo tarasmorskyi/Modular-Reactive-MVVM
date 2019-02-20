@@ -1,8 +1,5 @@
 package com.tarasmorskyi.myapplication.di
 
-import android.content.Context
-import android.content.res.Resources
-import android.view.LayoutInflater
 import com.tarasmorskyi.myapplication.App
 import com.tarasmorskyi.myapplication.moduleAPIs.ModulesAPIsModule
 import dagger.Binds
@@ -22,18 +19,6 @@ internal abstract class SessionModule {
         @JvmStatic
         fun sessionComponentBuilder(builder: SessionComponent.Builder): SessionComponent {
             return builder.build()
-        }
-
-        @Provides
-        @JvmStatic
-        fun provideLayoutInflater(app: App): LayoutInflater {
-            return app.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        }
-
-        @Provides
-        @JvmStatic
-        fun provideResources(app: App): Resources {
-            return app.resources
         }
     }
 

@@ -1,6 +1,5 @@
 package com.tarasmorskyi.uicore
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.ObservableSource
@@ -22,25 +21,24 @@ abstract class BaseViewModel<UIM : BaseUiModel, VME : BaseViewModelEvent, VE : B
 
     var viewEventObservable: MutableLiveData<VE> = MutableLiveData()
 
-    override fun onCleared() {
-        disposables.clear()
-    }
-
     init {
         events.flatMap { onEvent(it) }.observeOn(AndroidSchedulers.mainThread())
             .subscribe(this)
     }
 
-    fun event(event: VME) {
-        events.onNext(event)
+    override fun onSubscribe(d: Disposable) {
+        disposables.add(d)
+    }
+
+    override fun onCleared() {
+        disposables.dispose()
     }
 
     override fun onComplete() {
-        Log.d("aaa", "aaa")
     }
 
-    override fun onSubscribe(d: Disposable) {
-        disposables.add(d)
+    fun event(event: VME) {
+        events.onNext(event)
     }
 
     override fun onError(e: Throwable) {

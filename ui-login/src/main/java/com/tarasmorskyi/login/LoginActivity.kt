@@ -22,6 +22,7 @@ class LoginActivity : BaseActivity<LoginViewEvent, LoginViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         viewModel = ViewModelProviders.of(this, this.viewModeFactory).get(LoginViewModel::class.java)
 
         setContentView(R.layout.activity_login)

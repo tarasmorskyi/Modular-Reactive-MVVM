@@ -6,7 +6,7 @@ import io.reactivex.Maybe
 
 interface SettingsRepoEvents {
 
-    val settings: Maybe<SearchSettings>
+    fun settings(): Maybe<SearchSettings>
 
     fun setSettings(searchSettings: SearchSettings): Completable
 

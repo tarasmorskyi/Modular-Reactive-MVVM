@@ -11,10 +11,10 @@ class SettingsInteractorImpl @Inject constructor(
     private val settingsRepoEvents: SettingsRepoEvents
 ) : SettingsInteractor {
 
-    override val settings: Maybe<SearchSettings> = settingsRepoEvents.settings
+    override val settings: Maybe<SearchSettings> = settingsRepoEvents.settings()
 
     override fun setSettingsMature(mature: Boolean): Completable =
-        settingsRepoEvents.settings.flatMapCompletable { searchSettings ->
+        settingsRepoEvents.settings().flatMapCompletable { searchSettings ->
             if (searchSettings.mature == mature)
                 return@flatMapCompletable Completable.complete()
 
@@ -23,7 +23,7 @@ class SettingsInteractorImpl @Inject constructor(
         }
 
     override fun setSettingsShowViral(isViral: Boolean): Completable =
-        settingsRepoEvents.settings.flatMapCompletable { searchSettings ->
+        settingsRepoEvents.settings().flatMapCompletable { searchSettings ->
             if (searchSettings.showViral == isViral)
                 return@flatMapCompletable Completable.complete()
 
@@ -32,7 +32,7 @@ class SettingsInteractorImpl @Inject constructor(
         }
 
     override fun setSettingsFilter(filterId: Int): Completable =
-        settingsRepoEvents.settings.flatMapCompletable { searchSettings ->
+        settingsRepoEvents.settings().flatMapCompletable { searchSettings ->
             var section: String = searchSettings.section
             var sort: String = searchSettings.sort
             var window: String = searchSettings.window

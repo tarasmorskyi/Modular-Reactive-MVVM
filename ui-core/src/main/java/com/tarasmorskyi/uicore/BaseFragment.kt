@@ -26,7 +26,7 @@ abstract class BaseFragment<VE : BaseViewEvent, VM : BaseViewModel<out BaseUiMod
         setupViewModel()
         super.onActivityCreated(savedInstanceState)
         if (::viewModel.isInitialized) {
-            viewModel.errorObservable.observe(this, Observer {
+            viewModel.errorObservable.observe(viewLifecycleOwner, Observer {
                 if (it != null) {
                     when (it) {
                         is ResponseError -> {
@@ -37,7 +37,7 @@ abstract class BaseFragment<VE : BaseViewEvent, VM : BaseViewModel<out BaseUiMod
                 }
             })
 
-            viewModel.viewEventObservable.observe(this, Observer {
+            viewModel.viewEventObservable.observe(viewLifecycleOwner, Observer {
                 if (it != null) {
                     onEvent(it)
                     viewModel.viewEventObservable.postValue(null)

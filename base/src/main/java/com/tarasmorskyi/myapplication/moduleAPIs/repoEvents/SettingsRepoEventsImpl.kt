@@ -12,7 +12,7 @@ class SettingsRepoEventsImpl @Inject constructor(
     private val local: LocalRepository
 ) : SettingsRepoEvents {
 
-    override val settings: Maybe<SearchSettings> = local.searchSettings
+    override fun settings(): Maybe<SearchSettings> = local.searchSettings
 
     override fun setSettings(searchSettings: SearchSettings): Completable = local.setSearchSettings(searchSettings)
 
