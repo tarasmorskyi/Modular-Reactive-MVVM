@@ -17,7 +17,7 @@ constructor(
     var loadingObservable: MutableLiveData<Boolean> = MutableLiveData()
     var postsObservable: MutableLiveData<List<Post>> = MutableLiveData()
 
-    override fun onEvent(useCase: GalleryViewModelEvent): ObservableSource<out GalleryUiModel> = when (useCase) {
+    override fun onEvent(useCase: GalleryViewModelEvent): Observable<out GalleryUiModel> = when (useCase) {
 
         is GalleryViewModelEvent.GetPosts -> interactor.posts.map { GalleryUiModel.SetPosts(it) as GalleryUiModel }
             .toObservable()

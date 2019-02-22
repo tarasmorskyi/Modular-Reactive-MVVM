@@ -9,5 +9,5 @@ sealed class SettingsViewEvent : BaseViewEvent {
 
     object NotifyGalleryForUpdate : SettingsViewEvent()
 
-    class SetupSearchSettings(val searchSettings: SearchSettings) : SettingsViewEvent()
+    data class SetupSearchSettings(val searchSettings: SearchSettings) : SettingsViewEvent()
 }

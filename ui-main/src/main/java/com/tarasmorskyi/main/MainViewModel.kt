@@ -3,7 +3,7 @@ package com.tarasmorskyi.main
 import androidx.lifecycle.MutableLiveData
 import com.tarasmorskyi.main.interactors.MainInteractor
 import com.tarasmorskyi.uicore.BaseViewModel
-import io.reactivex.ObservableSource
+import io.reactivex.Observable
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(
@@ -12,7 +12,7 @@ class MainViewModel @Inject constructor(
 
     var fragmentPositionObservable = MutableLiveData<Int>()
 
-    override fun onEvent(useCase: MainViewModelEvent): ObservableSource<MainUiModel> {
+    override fun onEvent(useCase: MainViewModelEvent): Observable<MainUiModel> {
         TODO("call interactor methods from here without managing results")
     }
 

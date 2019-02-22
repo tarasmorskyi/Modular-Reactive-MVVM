@@ -9,5 +9,5 @@ sealed class SettingsUiModel : BaseUiModel {
 
     object LoggedOut : SettingsUiModel()
 
-    object EnableSearchSettings : SettingsUiModel()
+    object NotifyGalleryForUpdate : SettingsUiModel()
 }

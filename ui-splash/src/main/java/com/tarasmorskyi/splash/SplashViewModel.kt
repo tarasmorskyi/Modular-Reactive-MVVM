@@ -2,14 +2,14 @@ package com.tarasmorskyi.splash
 
 import com.tarasmorskyi.splash.interactors.SplashInteractor
 import com.tarasmorskyi.uicore.BaseViewModel
-import io.reactivex.ObservableSource
+import io.reactivex.Observable
 import javax.inject.Inject
 
 class SplashViewModel @Inject constructor(
     private val interactor: SplashInteractor
 ) : BaseViewModel<SplashUiModel, SplashViewModelEvent, SplashViewEvent>() {
 
-    override fun onEvent(useCase: SplashViewModelEvent): ObservableSource<out SplashUiModel> = when (useCase) {
+    override fun onEvent(useCase: SplashViewModelEvent): Observable<out SplashUiModel> = when (useCase) {
         is SplashViewModelEvent.CheckLoginStatus -> interactor.isLoggedIn().map {
             SplashUiModel.LoginResult(
                 it

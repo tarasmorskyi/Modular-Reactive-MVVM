@@ -2,7 +2,7 @@ package com.tarasmorskyi.uicore
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import io.reactivex.ObservableSource
+import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -48,5 +48,5 @@ abstract class BaseViewModel<UIM : BaseUiModel, VME : BaseViewModelEvent, VE : B
         errorObservable.value = e
     }
 
-    protected abstract fun onEvent(useCase: VME): ObservableSource<out UIM>
+    abstract fun onEvent(useCase: VME): Observable<out UIM>
 }
