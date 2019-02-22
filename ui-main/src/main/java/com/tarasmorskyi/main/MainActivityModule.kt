@@ -1,25 +1,32 @@
 package com.tarasmorskyi.main
 
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import com.tarasmorskyi.gallery.GalleryFragment
-import com.tarasmorskyi.gallery.GalleryFragmentSubcomponent
+import com.tarasmorskyi.gallery.GalleryFragmentModule
 import com.tarasmorskyi.gallery.api.GalleryUiEvents
 import com.tarasmorskyi.main.api.GalleryUiEventsImpl
 import com.tarasmorskyi.main.api.SettingsUiEventsImpl
 import com.tarasmorskyi.main.settings.SettingsFragment
-import com.tarasmorskyi.main.settings.SettingsFragmentSubcomponent
+import com.tarasmorskyi.main.settings.SettingsFragmentModule
 import com.tarasmorskyi.main.settings.api.SettingsUiEvents
+import com.tarasmorskyi.uicore.FragmentScope
 import com.tarasmorskyi.uicore.ViewModelKey
 import dagger.Binds
 import dagger.Module
-import dagger.android.AndroidInjector
-import dagger.android.support.FragmentKey
+import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.IntoMap
 
 
-@Module(subcomponents = [GalleryFragmentSubcomponent::class, SettingsFragmentSubcomponent::class])
+@Module
 abstract class MainActivityModule {
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = [GalleryFragmentModule::class])
+    abstract fun galleryFragment(): GalleryFragment
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = [SettingsFragmentModule::class])
+    abstract fun settingsFragment(): SettingsFragment
 
     @Binds
     @IntoMap
@@ -35,18 +42,4 @@ abstract class MainActivityModule {
     internal abstract fun provideSettingsUiEvents(
         settingsUiEvents: SettingsUiEventsImpl
     ): SettingsUiEvents
-
-    @Binds
-    @IntoMap
-    @FragmentKey(GalleryFragment::class)
-    internal abstract fun bindGalleryFragmentAndroidInjectorFactory(
-        builder: GalleryFragmentSubcomponent.Builder
-    ): AndroidInjector.Factory<out Fragment>
-
-    @Binds
-    @IntoMap
-    @FragmentKey(SettingsFragment::class)
-    internal abstract fun bindSettingsFragmentAndroidInjectorFactory(
-        builder: SettingsFragmentSubcomponent.Builder
-    ): AndroidInjector.Factory<out Fragment>
 }
