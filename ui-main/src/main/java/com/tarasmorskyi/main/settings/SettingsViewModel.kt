@@ -11,7 +11,7 @@ class SettingsViewModel @Inject constructor(
 
     override fun onEvent(useCase: SettingsViewModelEvent): Observable<out SettingsUiModel> = when (useCase) {
 
-        is SettingsViewModelEvent.GetSettings -> interactor.settings.map { SettingsUiModel.SetSettings(it) }.toObservable()
+        is SettingsViewModelEvent.GetSettings -> interactor.settings().map { SettingsUiModel.SetSettings(it) }.toObservable()
 
         is SettingsViewModelEvent.SetSettingsFilter -> interactor.setSettingsFilter(
             useCase.filterId

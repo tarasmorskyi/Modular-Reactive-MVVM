@@ -30,22 +30,22 @@ internal class SettingsViewModelTest : BaseViewModelTest() {
     @Test
     fun onEventGetSettings() {
         val searchSettings = SearchSettings()
-        whenever(settingsInteractor.settings).thenReturn(Maybe.just(searchSettings))
+        whenever(settingsInteractor.settings()).thenReturn(Maybe.just(searchSettings))
         assert(
             settingsViewModel.onEvent(SettingsViewModelEvent.GetSettings).test().values()[0]
                     ==
                     SettingsUiModel.SetSettings(searchSettings)
         )
-        verify(settingsInteractor).settings
+        verify(settingsInteractor).settings()
     }
 
     @Test
     fun onEventGetSettingsEmpty() {
-        whenever(settingsInteractor.settings).thenReturn(Maybe.empty())
+        whenever(settingsInteractor.settings()).thenReturn(Maybe.empty())
         assert(
             settingsViewModel.onEvent(SettingsViewModelEvent.GetSettings).test().values().isEmpty()
         )
-        verify(settingsInteractor).settings
+        verify(settingsInteractor).settings()
     }
 
     @Test

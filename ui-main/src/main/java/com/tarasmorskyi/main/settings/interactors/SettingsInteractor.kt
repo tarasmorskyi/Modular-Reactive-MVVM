@@ -6,7 +6,7 @@ import io.reactivex.Maybe
 
 interface SettingsInteractor {
 
-    val settings: Maybe<SearchSettings>
+    fun settings(): Maybe<SearchSettings>
 
     fun setSettingsMature(mature: Boolean): Completable
 

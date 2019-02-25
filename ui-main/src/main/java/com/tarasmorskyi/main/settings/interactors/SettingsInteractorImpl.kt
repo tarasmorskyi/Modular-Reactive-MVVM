@@ -11,7 +11,7 @@ class SettingsInteractorImpl @Inject constructor(
     private val settingsRepoEvents: SettingsRepoEvents
 ) : SettingsInteractor {
 
-    override val settings: Maybe<SearchSettings> = settingsRepoEvents.settings()
+    override fun settings(): Maybe<SearchSettings> = settingsRepoEvents.settings()
 
     override fun setSettingsMature(mature: Boolean): Completable =
         settingsRepoEvents.settings().flatMapCompletable { searchSettings ->

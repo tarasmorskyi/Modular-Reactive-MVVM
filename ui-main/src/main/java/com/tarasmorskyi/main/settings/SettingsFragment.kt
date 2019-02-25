@@ -60,6 +60,10 @@ class SettingsFragment : BaseFragment<SettingsViewEvent, SettingsViewModel>(),
 
         showViral.isChecked = searchSettings.showViral
         mature.isChecked = searchSettings.mature
+        setOnClickListeners()
+    }
+
+    private fun setOnClickListeners() {
         showViral.setOnCheckedChangeListener { _, isViral ->
             run {
                 viewModel.event(SettingsViewModelEvent.SetSettingsShowViral(isViral))
