@@ -5,10 +5,6 @@
       "title": "dogs"
     },
     {
-      "id": 2,
-      "title": "cats"
-    },
-    {
       "id": 3,
       "title": "parrots"
     },
@@ -26,287 +22,226 @@
     {
       "id": 112,
       "url": "https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg",
-      "albumId": 1
+      "album": [
+        1,
+        4
+      ]
     },
     {
       "id": 113,
       "url": "https://media4.s-nbcnews.com/i/newscms/2018_02/2285561/180109-dog-listening-mn-1215_86fd9caebf17bddbf5310597b860cef9.jpg",
-      "albumId": 1
+      "album": [
+        1,
+        4
+      ]
     },
     {
       "id": 114,
       "url": "https://amp.businessinsider.com/images/5a85af47d03072910a8b4571-750-563.jpg",
-      "albumId": 1
+      "album": [
+        1,
+        4
+      ]
     },
     {
       "id": 115,
       "url": "https://fortunedotcom.files.wordpress.com/2019/01/boo.jpg",
-      "albumId": 1
+      "album": [
+        1,
+        4
+      ]
     },
     {
       "id": 116,
       "url": "https://www.petmd.com/sites/default/files/Acute-Dog-Diarrhea-47066074.jpg",
-      "albumId": 1
+      "album": [
+        1,
+        4
+      ]
     },
     {
       "id": 117,
       "url": "https://d17fnq9dkz9hgj.cloudfront.net/breed-uploads/2018/08/american-eskimo-dog-card-large.jpg",
-      "albumId": 1
+      "album": [
+        1,
+        4
+      ]
     },
     {
       "id": 118,
       "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/20180320_White_Shepherd_2.jpg/1200px-20180320_White_Shepherd_2.jpg",
-      "albumId": 1
+      "album": [
+        1,
+        4
+      ]
     },
     {
       "id": 119,
       "url": "https://thenypost.files.wordpress.com/2018/05/180516-woman-mauled-by-angry-wiener-dogs-feature.jpg",
-      "albumId": 1
+      "album": [
+        1,
+        4
+      ]
     },
     {
       "id": 120,
       "url": "https://img.washingtonpost.com/news/morning-mix/wp-content/uploads/sites/21/2016/05/511900093_image_982w.jpg",
-      "albumId": 1
-    },
-    {
-      "id": 121,
-      "url": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/05/22/14/dog-and-duck.jpg",
-      "albumId": 1
-    },
-    {
-      "id": 122,
-      "url": "https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1527008108/dog-duckling-adopt-essex-DOGCARE0518.jpg",
-      "albumId": 1
-    },
-    {
-      "id": 123,
-      "url": "https://static.standard.co.uk/s3fs-public/thumbnails/image/2018/05/22/15/-101661507-capture.jpg",
-      "albumId": 1
-    },
-    {
-      "id": 124,
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Taka_Shiba.jpg/1200px-Taka_Shiba.jpg",
-      "albumId": 1
-    },
-    {
-      "id": 125,
-      "url": "https://pbs.twimg.com/profile_images/1046968391389589507/_0r5bQLl_400x400.jpg",
-      "albumId": 1
-    },
-    {
-      "id": 126,
-      "url": "https://pbs.twimg.com/media/B5VeNG_CQAAKY7e.jpg",
-      "albumId": 1
-    },
-    {
-      "id": 127,
-      "url": "https://hips.hearstapps.com/ghk.h-cdn.co/assets/18/12/boxer-dog.jpg",
-      "albumId": 1
-    },
-    {
-      "id": 128,
-      "url": "http://cdn.akc.org/content/article-body-image/housetrain_adult_dog_hero.jpg",
-      "albumId": 1
-    },
-    {
-      "id": 129,
-      "url": "https://www.petmd.com/sites/default/files/swelling-dogs.jpg",
-      "albumId": 1
-    },
-    {
-      "id": 130,
-      "url": "https://cdn.vox-cdn.com/thumbor/wng90rt7pFT3o_oPRNV21iK-2x8=/0x0:4560x3041/1200x800/filters:focal(1916x1157:2644x1885)/cdn.vox-cdn.com/uploads/chorus_image/image/58504395/911428568.jpg.0.jpg",
-      "albumId": 1
-    },
-    {
-      "id": 131,
-      "url": "https://media.tenor.com/images/0379362c94ad48c7d26d38cdcd919a4f/tenor.png",
-      "albumId": 1
-    },
-    {
-      "id": 132,
-      "url": "https://cdn.vox-cdn.com/thumbor/Bm3eqobZZudpI9nixx2LQ4GzqP8=/0x0:2048x1361/1200x800/filters:focal(861x518:1187x844)/cdn.vox-cdn.com/uploads/chorus_image/image/53430039/avb308bbx2iy.0.jpg",
-      "albumId": 1
-    },
-    {
-      "id": 211,
-      "url": "https://news.nationalgeographic.com/content/dam/news/2018/05/17/you-can-train-your-cat/02-cat-training-NationalGeographic_1484324.ngsversion.1526587209178.adapt.1900.1.jpg",
-      "albumId": 2
-    },
-    {
-      "id": 212,
-      "url": "https://www.catster.com/wp-content/uploads/2018/07/Savannah-cat-long-body-shot.jpg",
-      "albumId": 2
-    },
-    {
-      "id": 213,
-      "url": "https://static.boredpanda.com/blog/wp-content/uploads/2018/04/5acb63d83493f__700-png.jpg",
-      "albumId": 2
-    },
-    {
-      "id": 214,
-      "url": "https://www.catster.com/wp-content/uploads/2017/08/A-fluffy-cat-looking-funny-surprised-or-concerned.jpg",
-      "albumId": 2
-    },
-    {
-      "id": 215,
-      "url": "https://r.hswstatic.com/w_907/gif/tesla-cat.jpg",
-      "albumId": 2
-    },
-    {
-      "id": 216,
-      "url": "https://media.mnn.com/assets/images/2018/07/cat_eating_fancy_ice_cream.jpg.838x0_q80.jpg",
-      "albumId": 2
-    },
-    {
-      "id": 217,
-      "url": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/06/25/14/cat-lizard.jpg",
-      "albumId": 2
-    },
-    {
-      "id": 218,
-      "url": "http://ichef.bbci.co.uk/wwfeatures/wm/live/1280_640/images/live/p0/3c/7r/p03c7rt4.jpg",
-      "albumId": 2
-    },
-    {
-      "id": 219,
-      "url": "https://i.ytimg.com/vi/lrvqjdMcjjQ/hqdefault.jpg",
-      "albumId": 2
-    },
-    {
-      "id": 220,
-      "url": "https://www.lukdo.com/videos/uploads/thumbs/4e462c989-1.jpg",
-      "albumId": 2
-    },
-    {
-      "id": 221,
-      "url": "https://i2.ytimg.com/vi/E9U9xS4thxU/0.jpg",
-      "albumId": 2
-    },
-    {
-      "id": 222,
-      "url": "https://cdn5.img.sputniknews.com/images/105967/95/1059679556.jpg",
-      "albumId": 2
+      "album": [
+        1,
+        4
+      ]
     },
     {
       "id": 311,
       "url": "https://cdn.audubon.org/cdn/farfuture/qnip02g-SXI6Jv_3OtyOyleuIH8USIk2R9b7KgSJM_8/mtime:1456233818/sites/default/files/web_parrot_11595234946_125f49b03c_o.jpg",
-      "albumId": 3
+      "album": [
+        3,
+        4
+      ]
     },
     {
       "id": 312,
       "url": "https://www.thesprucepets.com/thmb/_tqEMiAXyAKcAXMny-7B2J9adHw=/3826x2679/filters:no_upscale():max_bytes(150000):strip_icc()/parrot--sun-conure--perching-on-blurred-garden-background-515531466-5ace5b40ae9ab8003826c3dd.jpg",
-      "albumId": 3
+      "album": [
+        3,
+        4
+      ]
     },
     {
       "id": 313,
       "url": "https://www.mumbailive.com/images/news/images_1534433094498_perrot.jpg",
-      "albumId": 3
+      "album": [
+        3,
+        4
+      ]
     },
     {
       "id": 314,
       "url": "https://www.economist.com/sites/default/files/images/print-edition/20180818_STP004_0.jpg",
-      "albumId": 3
+      "album": [
+        3,
+        4
+      ]
     },
     {
       "id": 315,
       "url": "https://pittwateranimalhospital.com.au/wp-content/uploads/2018/04/Eclectus-Parrot.jpg",
-      "albumId": 3
+      "album": [
+        3,
+        4
+      ]
     },
     {
       "id": 316,
       "url": "https://www.wallpaperup.com/uploads/wallpapers/2014/06/03/363365/b8657cc76c4b2ca61db062299e7711f2-700.jpg",
-      "albumId": 3
+      "album": [
+        3,
+        4
+      ]
     },
     {
       "id": 317,
       "url": "https://cdn.omlet.co.uk/images/originals/fischer's-lovebird.jpg",
-      "albumId": 3
+      "album": [
+        3,
+        4
+      ]
     },
     {
       "id": 318,
       "url": "https://previews.123rf.com/images/mikdam/mikdam1301/mikdam130100109/17154059-african-grey-parrot.jpg",
-      "albumId": 3
+      "album": [
+        3,
+        4
+      ]
     },
     {
       "id": 319,
       "url": "http://m4.wyanokecdn.com/cfadbf11c0990e61593955772da7be93.jpg",
-      "albumId": 3
+      "album": [
+        3,
+        4
+      ]
     },
     {
       "id": 320,
       "url": "https://lafeber.com/pet-birds/wp-content/uploads/2018/06/Cockatiel-2-300x300.jpg",
-      "albumId": 3
+      "album": [
+        3,
+        4
+      ]
     },
     {
       "id": 321,
       "url": "http://www.aljanh.net/data/archive/img/1215971522.jpeg",
-      "albumId": 3
+      "album": [
+        3,
+        4
+      ]
     },
     {
       "id": 322,
       "url": "https://www.wxxi.org/sites/default/files/images/rotater/disco.jpg",
-      "albumId": 3
+      "album": [
+        3,
+        4
+      ]
     },
     {
       "id": 411,
       "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Shaqi_jrvej.jpg/1200px-Shaqi_jrvej.jpg",
-      "albumId": 4
+      "album": [
+        4
+      ]
     },
     {
       "id": 412,
       "url": "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2018/06/edinburgh_meadows_2008_middle_meadow_walk_by_catharine_ward_thompson.jpg",
-      "albumId": 4
+      "album": [
+        4
+      ]
     },
     {
       "id": 413,
       "url": "http://therightsofnature.org/wp-content/uploads/2018/01/turkey-3048299_1920.jpg",
-      "albumId": 4
+      "album": [
+        4
+      ]
     },
     {
       "id": 414,
       "url": "https://www.visitportugal.com/sites/www.visitportugal.com/files/mediateca/23_660x371.jpg",
-      "albumId": 4
+      "album": [
+        4
+      ]
     },
     {
       "id": 415,
       "url": "http://www.wallpaperaholic.com/images/5/kS5pRN9r.jpg",
-      "albumId": 4
+      "album": [
+        4
+      ]
     },
     {
       "id": 416,
       "url": "https://media.nature.com/lw1024/magazine-assets/d41586-018-07183-6/d41586-018-07183-6_16227896.jpg",
-      "albumId": 4
+      "album": [
+        4
+      ]
     },
     {
       "id": 417,
       "url": "https://opimedia.azureedge.net/-/media/images/men/editorial/articles/magazine-articles/2015/12-01/seeing-green-the-importance-of-nature-for-our-health/nature-scene-jpg.jpg",
-      "albumId": 4
+      "album": [
+        4
+      ]
     },
     {
       "id": 418,
       "url": "https://i.ytimg.com/vi/f7GzJBAIhRk/maxresdefault.jpg",
-      "albumId": 4
-    },
-    {
-      "id": 419,
-      "url": "https://previews.123rf.com/images/joachimbago/joachimbago1703/joachimbago170300079/74967373-boat-at-lake-in-sweden-beautiful-nature-and-landscape-photo-warm-summer-evening-calm-and-peaceful-ou.jpg",
-      "albumId": 4
-    },
-    {
-      "id": 420,
-      "url": "https://previews.123rf.com/images/dotshock/dotshock1104/dotshock110400292/9378597-waterfall-in-wild-natire-with-fresh-and-clean-water-for-drink.jpg",
-      "albumId": 4
-    },
-    {
-      "id": 421,
-      "url": "https://image.dhgate.com/0x0s/f2-albu-g5-M00-62-73-rBVaI1iySauAA_KYAAKrKeqAFAM788.jpg/high-quality-costom-nature-scenery-tv-background.jpg",
-      "albumId": 4
-    },
-    {
-      "id": 422,
-      "url": "http://theshoppersweekly.com/wp-content/uploads/2018/06/forest.jpg",
-      "albumId": 4
+      "album": [
+        4
+      ]
     }
   ]
 }
