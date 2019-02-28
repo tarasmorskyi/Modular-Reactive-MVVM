@@ -26,7 +26,26 @@ class LoginActivity : BaseActivity<LoginViewEvent, LoginViewModel>() {
         viewModel = ViewModelProviders.of(this, this.viewModeFactory).get(LoginViewModel::class.java)
 
         setContentView(R.layout.activity_login)
+
+
+        test()
+
     }
+
+    fun test() {
+        val value1 = SomeClass(5)
+        val anotherValue = value1
+        testingInput(anotherValue)
+        println(value1)
+        println(anotherValue)
+    }
+
+    fun testingInput(input: SomeClass) {
+        input.number += 5
+    }
+
+    data class SomeClass(var number: Int)
+
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onPostCreate(savedInstanceState: Bundle?) {
