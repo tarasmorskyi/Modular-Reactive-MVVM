@@ -127,58 +127,42 @@
     {
       "id": 411,
       "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Shaqi_jrvej.jpg/1200px-Shaqi_jrvej.jpg",
-      "album": [
-        4
-      ]
+      "albumId": 4
     },
     {
       "id": 412,
       "url": "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2018/06/edinburgh_meadows_2008_middle_meadow_walk_by_catharine_ward_thompson.jpg",
-      "album": [
-        4
-      ]
+      "albumId": 4
     },
     {
       "id": 413,
       "url": "http://therightsofnature.org/wp-content/uploads/2018/01/turkey-3048299_1920.jpg",
-      "album": [
-        4
-      ]
+      "albumId": 4
     },
     {
       "id": 414,
       "url": "https://www.visitportugal.com/sites/www.visitportugal.com/files/mediateca/23_660x371.jpg",
-      "album": [
-        4
-      ]
+      "albumId": 4
     },
     {
       "id": 415,
       "url": "http://www.wallpaperaholic.com/images/5/kS5pRN9r.jpg",
-      "album": [
-        4
-      ]
+      "albumId": 4
     },
     {
       "id": 416,
       "url": "https://media.nature.com/lw1024/magazine-assets/d41586-018-07183-6/d41586-018-07183-6_16227896.jpg",
-      "album": [
-        4
-      ]
+      "albumId": 4
     },
     {
       "id": 417,
       "url": "https://opimedia.azureedge.net/-/media/images/men/editorial/articles/magazine-articles/2015/12-01/seeing-green-the-importance-of-nature-for-our-health/nature-scene-jpg.jpg",
-      "album": [
-        4
-      ]
+      "albumId": 4
     },
     {
       "id": 418,
       "url": "https://i.ytimg.com/vi/f7GzJBAIhRk/maxresdefault.jpg",
-      "album": [
-        4
-      ]
+      "albumId": 4
     }
   ]
 }
