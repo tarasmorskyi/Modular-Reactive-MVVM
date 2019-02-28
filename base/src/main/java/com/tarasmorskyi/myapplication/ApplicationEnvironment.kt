@@ -5,12 +5,10 @@ import android.util.Log
 import com.facebook.stetho.Stetho
 import com.squareup.picasso.OkHttp3Downloader
 import com.squareup.picasso.Picasso
-import io.reactivex.CompletableObserver
-import io.reactivex.disposables.Disposable
 import timber.log.Timber
 
 
-class ApplicationEnvironment(var app: App) : CompletableObserver {
+class ApplicationEnvironment(var app: App) {
 
 
     internal fun init() {
@@ -28,26 +26,11 @@ class ApplicationEnvironment(var app: App) : CompletableObserver {
         Picasso.setSingletonInstance(built)
     }
 
-    override fun onSubscribe(d: Disposable) {
-        //ignored
-    }
-
-    override fun onComplete() {
-        Timber.d("delayed loading finished")
-    }
-
-    override fun onError(e: Throwable) {
-        Timber.e(e, "onError() called")
-    }
-
     private class CrashReportingTree internal constructor() : Timber.Tree() {
         override fun log(priority: Int, tag: String?, message: String, t: Throwable?) {
             if (priority == Log.VERBOSE || priority == Log.DEBUG) {
                 return
             }
         }
-    }
-
-    companion object {
     }
 }
