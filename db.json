@@ -2,15 +2,18 @@
   "albums": [
     {
       "id": 1,
-      "title": "dogs"
+      "title": "dogs",
+      "previewUrl": "https://cdn1.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg"
     },
     {
       "id": 3,
-      "title": "parrots"
+      "title": "parrots",
+      "previewUrl": "https://cdn.audubon.org/cdn/farfuture/qnip02g-SXI6Jv_3OtyOyleuIH8USIk2R9b7KgSJM_8/mtime:1456233818/sites/default/files/web_parrot_11595234946_125f49b03c_o.jpg"
     },
     {
       "id": 4,
-      "title": "nature"
+      "title": "nature",
+      "previewUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Shaqi_jrvej.jpg/1200px-Shaqi_jrvej.jpg"
     }
   ],
   "photos": [
